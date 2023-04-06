@@ -1,0 +1,114 @@
+body.dashboard {
+  background-color: #f3f3f3;
+
+  #sidebar {
+    background-color: #ddd;
+    color: #333;
+  }
+
+  .grid-stack-item-content {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    .heading {
+      border-bottom: 1px solid #ddd;
+      background-color: #f3f3f3;
+    }
+  }
+
+  .form-control {
+    background-color: #ddd;
+    border-radius: 0;
+    border: solid 1px rgba(39, 50, 57, 0.5);
+
+  }
+
+  select {
+    -webkit-appearance: none;
+  }
+
+  input[type="radio"] {
+    border: 1px solid #2eb7e6;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    -webkit-appearance: none;
+  }
+
+  input[type="radio"]:after {
+    border-radius: 50%;
+    content: '';
+    display: block;
+    position: relative;
+    left: 3px;
+    top: 3px;
+    width: 6px;
+    height: 6px;
+  }
+
+  input[type="radio"]:checked:after {
+    background-color: #2eb7e6;
+  }
+  input[type="radio"]:focus {
+    outline: none;
+  }
+
+  hr {
+    border-top: none;
+    border-bottom: solid 1px #273239;
+  }
+
+  .module-number {
+    .heading {
+      border-top: none;
+      background-color: #fff;
+    }
+  }
+
+  .module-radar {
+    .result-list {
+      .result {
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #999;
+
+        &:first-child {
+          background-color: #ddd;
+          border-bottom: 1px solid #999;
+          border-right: 1px solid #ddd;
+          outline: none;
+        }
+        &:hover {
+          background-color: lightskyblue;
+        }
+      }
+    }
+
+    .result-detail {
+      border: none;
+      background-color: #ddd;
+    }
+  }
+
+  .result-overlay {
+    background-color: #eee;
+    color: #343434;
+    box-shadow: 0 0 8px #333;
+
+    .result {
+      transition: all .5s;
+      border-top: 1px solid #eee;
+      &.active, &:hover {
+        border-top: 1px solid #f8f8f8;
+        background-color: #ddd;
+      }
+    }
+
+    .map {
+      border-top: 2px solid #f8f8f8;
+    }
+  }
+}

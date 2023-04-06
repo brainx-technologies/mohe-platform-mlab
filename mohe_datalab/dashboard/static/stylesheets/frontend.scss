@@ -1,0 +1,103 @@
+@import "frontend_variables";
+
+@font-face {
+  font-family: Din Light;
+  src: url('../fonts/din-light.eot?&04bdb4ae82af#iefix') format("embedded-opentype"), url('../fonts/din-light.ttf?04bdb4ae82af') format("truetype");
+}
+
+@font-face {
+  font-family: Din Medium;
+  src: url('../fonts/DINMedium.ttf') format("truetype");
+}
+
+
+body {
+  color: $textColor;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 0;
+  font-family: 'Din Light';
+}
+
+header {
+  .navbar-fixed-top {
+    z-index: 10000;
+  }
+
+  .navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+
+    .navbar-brand {
+      font-size: 24px;
+      line-height: 45px;
+      padding: 5px 15px;
+      margin-top: 10px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .navbar-nav {
+      > li {
+        font-size: 16px;
+
+        > a {
+          text-transform: uppercase;
+	  padding-top: 5px;
+	  padding-bottom: 5px;
+	  margin-top: 22px;
+        }
+      }
+
+      .active > a, .active > a:focus, .active > a:hover {
+        color: #0e7dc2;
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 100px;
+}
+
+body.settings {
+  form {
+    label {
+      text-transform: uppercase;
+    }
+  }
+}
+
+label {
+  font-weight: normal;
+}
+
+.panel {
+  border-radius: 0;
+
+  .panel-heading {
+    font-size: larger;
+  }
+
+  .table {
+
+  }
+}
+
+
+.navbar-nav {
+  .label {
+    vertical-align: middle;
+    padding: 4px 6px 2px 6px;
+    font-size: 100%;
+  }
+}
+
+.alert {
+  margin-top: 100px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 0;
+}

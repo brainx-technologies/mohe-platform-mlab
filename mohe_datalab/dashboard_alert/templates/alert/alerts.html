@@ -1,0 +1,116 @@
+{% extends 'frontend/base.html' %}
+{% load static compress datalab_tags bootstrap3 i18n %}
+
+{% block extra_head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>{% trans 'alerts' %}</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">{% trans 'recent alerts' %}</div>
+                    {% if recent %}
+                        <table class="table">
+                            <tr>
+                                <th>{% trans 'alert' %}</th>
+                                <th>{% trans 'date' %}</th>
+                                <th>{% trans 'total' %}</th>
+                                <th>{% trans 'trigger' %}</th>
+                                <th>{% trans 'threshold' %}</th>
+                                <th>{% trans 'rate' %}</th>
+                                <th></th>
+                            </tr>
+                            {% for alert in recent %}
+                                <tr>
+                                    <td>{{ alert.template.title }}</td>
+                                    <td>{{ alert.date }}</td>
+                                    <td>{{ alert.total }}</td>
+                                    <td>{{ alert.trigger }}</td>
+                                    <td>{{ alert.template.threshold }}%</td>
+                                    <td>{{ alert.rate }}%</td>
+                                    <td><a href="?process={{ alert.id }}"><i class="glyphicon glyphicon-check"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <div class="panel-body">
+                            {% trans 'No recent alerts.' %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">{% trans 'previous alerts' %}</div>
+                    {% if previous %}
+                        <table class="table">
+                            <tr>
+                                <th>{% trans 'alert' %}</th>
+                                <th>{% trans 'date' %}</th>
+                                <th>{% trans 'total' %}</th>
+                                <th>{% trans 'trigger' %}</th>
+                                <th>{% trans 'threshold' %}</th>
+                                <th>{% trans 'rate' %}</th>
+                                <th></th>
+                            </tr>
+                            {% for alert in previous %}
+                                <tr>
+                                    <td>{{ alert.template.title }}</td>
+                                    <td>{{ alert.date }}</td>
+                                    <td>{{ alert.total }}</td>
+                                    <td>{{ alert.trigger }}</td>
+                                    <td>{{ alert.template.threshold }}%</td>
+                                    <td>{{ alert.rate }} %</td>
+                                    <td>
+                                        <a href="?delete={{ alert.id }}"><i class="glyphicon glyphicon-trash"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <div class="panel-body">{% trans 'No previous alerts.' %}</div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{% trans 'alert configuration' %}</div>
+                    <table class="table">
+                        <tr>
+                            <th>{% trans 'title' %}</th>
+                            <th>{% trans 'test' %}</th>
+                            <th>{% trans 'team' %}</th>
+                            <th>{% trans 'interval' %}</th>
+                            <th>{% trans 'threshold' %}</th>
+                        </tr>
+                        {% for template in templates %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'alert_template_update' template.pk %}">
+                                        {{ template.title }}
+                                    </a>
+                                </td>
+                                <td>{{ template.test }}</td>
+                                <td>{{ template.team|default:'-' }}</td>
+                                <td>{{ template.get_interval_display }}</td>
+                                <td>{{ template.threshold }}%</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5">
+                                <a href="{% url 'alert_template_add' %}">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

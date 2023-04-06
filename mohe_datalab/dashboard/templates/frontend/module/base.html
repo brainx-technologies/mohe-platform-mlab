@@ -1,0 +1,30 @@
+<div class="grid-stack-item module module-{{ m.module }}" data-gs-x="{{ m.x }}"
+     data-gs-y="{{ m.y }}" data-gs-width="{{ m.width }}"
+     data-gs-height="{{ m.height }}" data-module="{{ m.module }}" data-id="{{ m.id }}" id="module-{{ m.id }}">
+    <div class="grid-stack-item-content">
+        <div class="heading">
+            {% if update %}
+                <div class="handles">
+                    <a class="move">
+                        <i class="glyphicon glyphicon-move"></i>
+                    </a>
+                    <a class="update" href="{% url 'widget_update' m.pk %}">
+                        <i class="glyphicon glyphicon-cog"></i>
+                    </a>
+                    <a class="delete">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </div>
+            {% endif %}
+            {% block heading %}{{ m.title }}{% endblock %}
+        </div>
+        <div class="body">
+            {% block body %}
+                <div class="empty">
+                    No results available.
+                </div>
+                <div id="chart-{{ m.id }}"></div>
+            {% endblock %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'frontend/base.html' %}
+{% load static compress dastalab_tags bootstrap3 i18n %}
+
+{% block extra_head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% trans 'Delete alert template' %}
+            </div>
+            <div class="panel-body">
+                <p>
+                    {% trans 'You are about to delete the alert template "{{ instance.title }}".' %}
+                </p>
+                <p>
+                    {% trans 'Are you sure?' %}
+                </p>
+
+                <form method="post" class="form-horizontal">{% csrf_token %}
+
+                    <a href="{% url 'alert_template_update' instance.pk %}" class="btn btn-default">
+                        {% trans 'Back' %}
+                    </a>
+                    <button type="submit" class="btn btn-danger">{% trans 'Delete' %}</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_js %}
+
+{% endblock %}

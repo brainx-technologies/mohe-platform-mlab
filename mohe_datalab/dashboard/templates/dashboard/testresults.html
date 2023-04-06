@@ -1,0 +1,12 @@
+<div id="module_{{ module.id }}" class="{{ module.render_css_classes }} usage">
+    <h2>{{ module.title }}</h2>
+    <table>
+        {% for line in module.data %}
+            <tr>
+                <th>{{ line.0 }}</th>
+                <td>{{ line.1 }}</td>
+                <td>{{ line.2 }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

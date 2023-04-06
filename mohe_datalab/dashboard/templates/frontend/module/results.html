@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<div class="module module-results"
+     data-module="results" data-id="{{ m.id }}" id="module-{{ m.id }}">
+    <div class="grid-stack-item-content results" id="results-{{ m.id }}">
+        <div class="results">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{% trans 'measurement date' %}</th>
+                    <th>{% trans 'team' %}</th>
+                    <th>{% trans 'kPlex' %}</th>
+                    <th>{% trans 'reference' %}</th>
+                    <th>{% trans 'status' %}</th>
+                    <th>{% trans 'triggered parameters' %}</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <ul class="pagination"></ul>
+</div>

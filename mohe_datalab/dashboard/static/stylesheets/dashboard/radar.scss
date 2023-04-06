@@ -1,0 +1,74 @@
+.module-radar {
+  .body {
+    .result-map {
+      position: absolute;
+      left: 35%;
+      top: 29px;
+      bottom: 0;
+      width: 65%;
+      z-index: 0;
+
+        .gm-style-cc { display: none !important; }
+    }
+
+    .result-list {
+      position: absolute;
+      left: 0%;
+      top: 29px;
+      bottom: 0px;
+      width: 35%;
+      overflow: scroll;
+
+      .result {
+        display: block;
+        padding: 8px 16px;
+        border-bottom: 1px solid #000;
+        cursor: pointer;
+
+        .id {
+          padding: 2px;
+          margin-right: 4px;
+          font-size: larger;
+        }
+
+        .kplex {
+          display: block;
+          padding: 2px;
+        }
+
+        .date {
+          display: block;
+          padding: 2px;
+        }
+      }
+    }
+
+    .result-detail {
+      position: absolute;
+      left: 35%;
+      top: 29px;
+      bottom: 0px;
+      width: 35%;
+      padding: 5px 15px;
+      z-index: 909999;
+      opacity: 0;
+
+      div {
+        padding: 4px 0;
+      }
+
+      div.id, div.status {
+        display: inline-block;
+      }
+
+      div.id {
+        margin-right: 5px;
+        font-size: larger;
+      }
+    }
+  }
+
+  .result-list:hover + .result-detail {
+    opacity: 0.9;
+  }
+}

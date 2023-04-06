@@ -1,0 +1,6 @@
+{% load l10n %}
+<div class="module module-map"
+     data-module="map" data-id="{{ m.id }}" id="module-{{ m.id }}">
+    <div class="map map-play" id="map-{{ m.id }}" data-lat="{{ m.lat|unlocalize }}" data-lng="{{ m.lng|unlocalize }}" data-zoom="{{ m.zoom }}">
+    </div>
+</div>

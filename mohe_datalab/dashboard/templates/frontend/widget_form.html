@@ -1,0 +1,22 @@
+{% extends 'frontend/base.html' %}
+{% load i18n bootstrap3 %}
+
+{% block body_class %}dashboard-form{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ title }}
+            </div>
+            <div class="panel-body">
+                <form method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    {% bootstrap_form form layout='horizontal' %}
+                    {% buttons layout='horizontal' submit='Save' %}{% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

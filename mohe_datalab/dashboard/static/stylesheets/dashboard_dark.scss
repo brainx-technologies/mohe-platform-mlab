@@ -1,0 +1,210 @@
+@import "frontend_variables";
+
+$dark1: #2a363d;
+$dark2: #43545e;
+$dark3: #53626b;
+$highlight: #2eb7e6;
+
+body.dashboard {
+  background: $dark1;
+
+  #sidebar {
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .module {
+    .grid-stack-item-content {
+      background-color: $dark2;
+      color: #fff;
+    }
+
+    .heading {
+      border-bottom: 1px solid black;
+      background-color: $dark2;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  .form-control {
+    background-color: $dark3;
+    border-radius: 0;
+    border: solid 1px $dark1;
+    color: #fff !important;
+  }
+
+  .btn-default {
+    background-color: $dark3;
+    border: solid 1px $dark1;
+    color: #fff !important;
+  }
+
+  select {
+    -webkit-appearance: none;
+  }
+
+  input[type="radio"] {
+    border: 1px solid $highlight;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    -webkit-appearance: none;
+  }
+
+  input[type="radio"]:after {
+    border-radius: 50%;
+    content: '';
+    display: block;
+    position: relative;
+    left: 3px;
+    top: 3px;
+    width: 6px;
+    height: 6px;
+  }
+
+  input[type="radio"]:checked:after {
+    background-color: $highlight;
+  }
+
+  input[type="radio"]:focus {
+    outline: none;
+  }
+
+  hr {
+    border-top: none;
+    border-bottom: solid 1px $dark1;
+  }
+
+  .module-radar {
+    .result-list {
+      .result {
+        border-bottom: 1px solid $dark3;
+        border-right: 1px solid $dark1;
+
+        &:hover {
+          background-color: $highlight;
+        }
+
+        &.active {
+          background-color: $dark3;
+          border-right: 1px solid $dark3;
+          border-bottom: 1px solid $dark1;
+        }
+      }
+    }
+
+    .result-detail {
+      background-color: $dark3;
+    }
+  }
+
+  .module-results {
+    .panel-heading {
+      background-color: $dark1;
+      padding: 15px 0;
+      border-bottom: none;
+    }
+  }
+
+  .result-overlay {
+    background-color: $dark2;
+    color: #fff;
+    box-shadow: 0 0 8px #333;
+
+    .result {
+      transition: all .5s;
+      border-top: 1px solid $dark2;
+
+      &.active, &:hover {
+        border-top: 1px solid $dark1;
+        background-color: $dark3;
+      }
+    }
+
+    .map {
+      border-top: 2px solid $dark1;
+    }
+  }
+
+  .close {
+    color: #fff !important;
+    text-shadow: none;
+    opacity: 1;
+    font-weight: 300;
+  }
+
+  main {
+    a {
+      color: #fff;
+    }
+
+    .pagination {
+      li {
+        a {
+          color: #333;
+        }
+
+        &.active {
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .table-striped tbody > tr:nth-of-type(odd) {
+    background-color: $dark3;
+  }
+
+  .table {
+    thead {
+      tr {
+        th {
+          border-bottom: 2px solid $dark1;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          border-top: none;
+        }
+
+        &.active {
+          td {
+            background-color: rgba(14, 125, 194, .3);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+  body.dashboard {
+    #sidebar {
+      background: $dark3;
+    }
+  }
+}
+
+@media(min-width: 1000px) {
+  body.dashboard {
+    background: linear-gradient(to right, $dark2 0, $dark2 250px, $dark1 250px);
+  }
+}
+
+.has-success .checkbox, .has-success .checkbox-inline, .has-success .control-label, .has-success .help-block, .has-success .radio, .has-success .radio-inline, .has-success.checkbox label, .has-success.checkbox-inline label, .has-success.radio label, .has-success.radio-inline label {
+  color: $green;
+}

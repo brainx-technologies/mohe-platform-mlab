@@ -1,0 +1,44 @@
+.module-latest {
+  .body {
+    .results {
+      position: absolute;
+      top: 28px;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      overflow-y: scroll;
+
+      h4 {
+        margin: 2px 0;
+      }
+
+      .result {
+        padding: 10px 15px 5px 15px;
+        cursor: pointer;
+
+        p {
+          margin: 2px 0;
+        }
+
+        .status-clear {
+          border-right: 1px solid #ccc;
+          padding: 0 5px 0 0;
+        }
+      }
+    }
+
+    .parameters {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      bottom: 0;
+      width: 50%;
+
+      padding: 0 15px;
+
+      h4 {
+        padding: 2px 0 10px 0;
+      }
+    }
+  }
+}

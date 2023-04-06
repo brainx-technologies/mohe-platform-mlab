@@ -1,0 +1,8 @@
+{% extends 'frontend/module/base.html' %}
+{% load l10n %}
+
+{% block body %}
+    <div class="result-map" id="radar-{{ m.id }}" data-lat="{{ m.lat|unlocalize }}" data-lng="{{ m.lng|unlocalize }}" data-zoom="{{ m.zoom }}"></div>
+    <div class="result-list"></div>
+    <div class="result-detail"></div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'registration/base.html' %}
+{% load i18n bootstrap3 %}
+
+{% block title %}{% trans 'Create an administrators account:' %}{% endblock %}
+
+{% block panel-heading %}{% trans 'Create an administrators account:' %}{% endblock %}
+
+{% block panel-body %}
+    <form method="post">{% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-primary">{% trans 'Continue' %}</button>
+    </form>
+{% endblock %}

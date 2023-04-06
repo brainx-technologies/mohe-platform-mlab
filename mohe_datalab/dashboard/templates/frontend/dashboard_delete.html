@@ -1,0 +1,23 @@
+{% extends 'frontend/base.html' %}
+{% load i18n bootstrap3 %}
+
+{% block body_class %}dashboard-form{% endblock %}
+
+{% block panel-heading %}
+    {% trans 'Delete dashboard' %}
+{% endblock %}
+
+{% block panel-body %}
+    <p>{% blocktrans with dashboard_t=instance.title %}You are about to delete the dashboard "{{ dashboard_t }}".{% endblocktrans %}</p>
+    <p>{% trans 'Are you sure?' %}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">
+            {% trans 'Continue' %}
+        </button>
+        <a href="{% url 'dashboard_update' instance.slug %}" class="btn btn-warning">
+            {% trans 'Cancel' %}
+        </a>
+    </form>
+{% endblock %}
+

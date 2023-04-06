@@ -1,0 +1,24 @@
+{% extends 'frontend/base.html' %}
+{% load i18n bootstrap3 %}
+
+{% block body_class %}dashboard-form{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% trans 'Add dashboard' %}
+            </div>
+            <div class="panel-body">
+                <form method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    {% bootstrap_field form.title layout='horizontal' %}
+                    {% bootstrap_field form.preset layout='horizontal' %}
+                    {% bootstrap_field form.style layout='horizontal' %}
+                    {% buttons layout='horizontal' submit='Create' %}{% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

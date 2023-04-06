@@ -1,0 +1,86 @@
+<div id="module_{{ module.id }}" class="{{ module.render_css_classes }} usage">
+    <h2>{{ module.title }}</h2>
+    <table width="100%">
+        <thead>
+        <tr>
+            <th>kPlex</th>
+            <th>batch</th>
+            <th>total</th>
+            <th>
+                year
+            </th>
+            <th>
+                per day
+            </th>
+            <th>
+                quarter
+            </th>
+            <th>
+                per day
+            </th>
+            <th>
+                month
+            </th>
+            <th>
+                per day
+            </th>
+            <th>
+                ordered
+            </th>
+            <th>
+                delivered
+            </th>
+            <th>
+                left
+            </th>
+            <th>
+                Expected end date
+            </th>
+
+        </tr>
+        </thead>
+        {% for item in module.data %}
+            <tr class="numbers">
+                <td>
+                    {{ item.kplex.acronym }}
+                </td>
+                <td class="number">
+                    {{ item.batch.batch_number }}
+                </td>
+                <td class="number">
+                    {{ item.total }}
+                </td>
+                <td class="number">
+                    {{ item.yearly }}
+                </td>
+                <td class="rate">
+                    {{ item.yearly_rate }}
+                </td>
+                <td class="number">
+                    {{ item.quarterly }}
+                </td>
+                <td class="rate">
+                    {{ item.quarterly_rate }}
+                </td>
+                <td class="number">
+                    {{ item.monthly }}
+                </td>
+                <td class="rate">
+                    {{ item.monthly_rate }}
+                </td>
+                <td class="number">
+                    {{ item.ordered }}
+                </td>
+                <td class="rate">
+                    {{ item.delivered }}
+                </td>
+                <td class="number">
+                    {{ item.stock }}
+                </td>
+                <td>
+                   {{ item.end_date }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

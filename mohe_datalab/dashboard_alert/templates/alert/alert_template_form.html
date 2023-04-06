@@ -1,0 +1,29 @@
+{% extends 'frontend/base.html' %}
+{% load static compress datalab_tags bootstrap3 i18n %}
+
+{% block extra_head %}
+    {{ block.super }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ title }}
+            </div>
+            <div class="panel-body">
+                <form method="post" class="form-horizontal">{% csrf_token %}
+                    {% bootstrap_form form layout='horizontal' %}
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
+                    </div>
+                    <a href="{% url 'alerts' %}" class="btn btn-default">{% trans 'Back' %}</a>
+                    {% if instance.pk %}
+                        <a href="{% url 'alert_template_delete' instance.pk %}"
+                           class="btn btn-danger">{% trans 'Delete' %}</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
