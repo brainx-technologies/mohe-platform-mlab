@@ -1,22 +1,10 @@
 @import "frontend_variables";
 
-@font-face {
-  font-family: Din Light;
-  src: url('../fonts/din-light.eot?&04bdb4ae82af#iefix') format("embedded-opentype"), url('../fonts/din-light.ttf?04bdb4ae82af') format("truetype");
-}
-
-@font-face {
-  font-family: Din Medium;
-  src: url('../fonts/DINMedium.ttf') format("truetype");
-}
-
-
 body {
   color: $textColor;
   background-color: #f3f3f3;
   margin: 0;
   padding: 0;
-  font-family: 'Din Light';
 }
 
 header {
@@ -29,13 +17,8 @@ header {
     border-color: #fff;
 
     .navbar-brand {
-      font-size: 24px;
-      line-height: 45px;
-      padding: 5px 15px;
-      margin-top: 10px;
-
       img {
-        height: 100%;
+        height: 20px;
       }
     }
 
@@ -45,9 +28,6 @@ header {
 
         > a {
           text-transform: uppercase;
-	  padding-top: 5px;
-	  padding-bottom: 5px;
-	  margin-top: 22px;
         }
       }
 

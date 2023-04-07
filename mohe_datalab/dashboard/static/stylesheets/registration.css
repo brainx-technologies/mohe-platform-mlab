@@ -1,17 +1,10 @@
-@font-face {
-    font-family: Din Light;
-    src: url('../fonts/din-light.eot?&04bdb4ae82af#iefix') format("embedded-opentype"), url('/static/fonts/din-light.ttf?04bdb4ae82af') format("truetype");
-}
-
 html {
     height: 100%;
 }
 
 body {
     height: 100%;
-    background: linear-gradient(to right, #00befa, #0072a3);
     background: linear-gradient(to right, #0069a5, #004070);
-    font-family: "Din Light";
 }
 
 #logo {
