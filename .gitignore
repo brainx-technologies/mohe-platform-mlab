@@ -1,0 +1,8 @@
+.*
+__pycache__
+*.pyc
+etc/settings.ini
+*.swp
+var
+*.mo
+*.egg-info
