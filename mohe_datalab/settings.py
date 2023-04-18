@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'mohe.util',
     'mohe.alert',
     'mohe.ui',
-    'mohe.datalab',
 
     # mohe_datalab
     'mohe_datalab.dashboard',

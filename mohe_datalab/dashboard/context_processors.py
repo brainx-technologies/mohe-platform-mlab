@@ -1,6 +1,6 @@
 from mohe.client.models import Team
 from mohe.util.models import Configuration
-from mohe.datalab.models import Dashboard
+from mohe_datalab.dashboard.models import Dashboard
 
 
 def config(request):

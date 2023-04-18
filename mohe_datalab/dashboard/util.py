@@ -1,5 +1,5 @@
-from mohe.datalab.constants import DashboardPreset
-from mohe.datalab.models import Dashboard, DashboardModule, TeamActivity, TriggerPerKplex, \
+from mohe_datalab.dashboard.constants import DashboardPreset
+from mohe_datalab.dashboard.models import Dashboard, DashboardModule, TeamActivity, TriggerPerKplex, \
     TriggerPerTest, Radar, Map, Results, Number, TestkitStock
 from mohe.util.models import Configuration
 

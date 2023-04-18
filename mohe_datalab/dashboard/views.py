@@ -7,7 +7,7 @@ from django.urls.base import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-from mohe.datalab.models import Dashboard, DashboardModule
+from mohe_datalab.dashboard.models import Dashboard, DashboardModule
 from mohe_datalab.dashboard.export import export_dashboard
 from mohe_datalab.dashboard.forms import DashboardCreateForm, DashboardFilterForm, WidgetAddForm, Widgets, \
     DashboardUpdateForm

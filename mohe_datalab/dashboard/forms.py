@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from mohe.datalab.models import Dashboard, Number, Latest, TriggerPerKplex, Radar, Map, Results, \
+from mohe_datalab.dashboard.models import Dashboard, Number, Latest, TriggerPerKplex, Radar, Map, Results, \
     TriggerPerTest, TeamActivity, DeviceCapacity, CountryModule, TestkitStock
 from mohe.kplex.models import Kplex
 from mohe.measurement.models import Measurement

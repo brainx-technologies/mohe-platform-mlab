@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 from mohe.alert.models import Alert
 from mohe.client.models import Team
-from mohe.datalab.models import DashboardModule, Dashboard, Number, Latest, TriggerPerKplex, Radar, \
+from mohe_datalab.dashboard.models import DashboardModule, Dashboard, Number, Latest, TriggerPerKplex, Radar, \
     Results, TriggerPerTest, TeamActivity, CountryModule, TestkitStock, Map
 from mohe.diagnostics.models import Biomarker
 from mohe.geo.models import Province

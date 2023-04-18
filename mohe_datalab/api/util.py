@@ -2,7 +2,7 @@ import datetime
 import time
 
 from mohe.client.models import Team
-from mohe.datalab.constants import Period, Compare
+from mohe_datalab.dashboard.constants import Period, Compare
 from mohe.measurement.models import Measurement, Result
 
 
