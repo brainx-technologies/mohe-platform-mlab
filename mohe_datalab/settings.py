@@ -18,6 +18,7 @@ INSTALLED_APPS = [
 
     # mohe core
     'mohe.client',
+    'mohe.demo',
     'mohe.diagnostics',
     'mohe.hardware',
     'mohe.kplex',
@@ -47,7 +48,6 @@ STATICFILES_FINDERS = (
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
-
 
 # AUTH
 
