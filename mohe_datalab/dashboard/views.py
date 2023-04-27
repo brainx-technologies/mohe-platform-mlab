@@ -44,7 +44,7 @@ def dashboard(request, slug):
 
     if "reset" in request.GET:
         update = True
-        dashboard_reset(instance)
+        dashboard_reset(request, slug)
         return HttpResponseRedirect('?update=1')
 
     elif 'update' in request.GET or 'update' in request.POST:
@@ -124,7 +124,7 @@ def dashboard_add(request):
                 slug = "{0}-{1}".format(original_slug, i)
             instance.slug = slug
             instance.save()
-            dashboard_reset(instance)
+            dashboard_reset(request, slug)
 
             return HttpResponseRedirect(instance.get_absolute_url())
     else:
