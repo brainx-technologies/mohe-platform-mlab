@@ -1,0 +1,109 @@
+.custom-card {
+    padding: 16px;
+    background: white;
+    margin-bottom: 16px;
+    box-shadow: 0px 2px 6px #0000000A;
+    border-radius: 2px;
+}
+
+.dashboard__page .info-card {
+    min-width: 175px;
+    width: fit-content;
+    margin-right: 16px;
+    display: flex;
+}
+
+.dashboard__page .info-card.bars {
+    align-items: flex-end;
+}
+
+.dashboard__page .info-card .title {
+    font-family: "AvenirNext";
+    color: #873375;
+    font-size: 15px;
+}
+
+.dashboard__page .info-card .number {
+    font-family: "AvenirNext";
+    color: #873375;
+    font-size: 16px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.dashboard__page .info-card .mplex-icon {
+    position: absolute;
+    bottom: 0;
+    right: 12px;
+    bottom: 12px;
+    cursor: pointer;
+}
+
+.dashboard__page .info-card .number.orange {
+    color: #D66D6E;
+}
+
+.dashboard__page .info-card .percentage .number {
+    font-size: 12px;
+    margin-left: 8px;
+    ;
+    color: #D66D6E;
+}
+
+.dashboard__page .info-card .bars-image {
+    margin-bottom: -16px;
+}
+
+
+.dashboard__page .table-header {
+    color: #A3A6B4;
+    --bs-table-bg: #F7F4F4;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    opacity: 1;
+    z-index: 2;
+}
+
+.dashboard__page #mPlexContent {
+    padding: 20px;
+    position: absolute;
+    background: white;
+    left: 0;
+    z-index: 5;
+    top: calc(100% + 14px);
+    box-shadow: 1px 1px 6px 0px red;
+}
+
+.dashboard__page #mPlexContent .heading {
+    color: #4D4F5C;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.dashboard__page .lables .label {
+    color: #873375;
+    border-bottom: 1px solid #F1F1F3;
+    padding: 10px 0;
+
+}
+
+.dashboard__page tbody tr {
+    color: #4D4F5C;
+    opacity: .5;
+    font-size: 13px;
+}
+
+.dashboard__page tbody tr.active {
+    color: #873375;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.dashboard__page tbody tr.active .dot {
+    background-color: #D66D6E;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    display: block;
+}

@@ -1,79 +1,92 @@
 {% extends "frontend/base.html" %}
-{% load i18n bootstrap3 %}
+{% load static compress bootstrap3 i18n %}
 
-{% block body_class %}settings{% endblock %}
+{% block extra_head %}
+{% compress css %}
+<link href="{% static 'stylesheets/settings.css' %}" rel="stylesheet">
+{% endcompress %}
+{% endblock %}
 
-{% block panel-body %}
-    <form method="post">{% csrf_token %}
-        {% if form.errors %}
-            <p class="alert alert-danger">
-                {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
-                    {% trans "Please correct the errors below." %}{% endif %}
-            </p>
-        {% endif %}
+{% block main_page %}
 
-        <fieldset>
-            <legend>{% trans 'Login details' %}</legend>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="control-label">{% trans 'E-mail' %}</label>
-                        <p>
-                            {{ user.email }}
-                        </p>
-                    </div>
+<div class="row content-container">
+
+
+    <!-- <form method="post">{% csrf_token %} -->
+
+        <div class="col-md-8">
+            <div class="heading">Login Details</div>
+            <div class="form-container row">
+                <div class="mb-4 col-md-6">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" value="{{ user.email }}">
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="control-label">{% trans 'password' %}</label>
-                        <p>
-                            <a href="{% url 'password_change' %}">{% trans 'Change your password' %}</a>
-                        </p>
-                    </div>
+                <div class="mb-4 col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <p>
+                        <a href="{% url 'password_change' %}">{% trans 'Change your password' %}</a>
+                    </p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>{% trans 'Team for result upload' %}</label>
-                        <p>{{ user.team|default:'-' }}</p>
-                    </div>
+
+                <div class="mb-4 col-md-6">
+                    <label for="upload-team" class="form-label">Team for Result Upload</label>
+                    <input type="text" class="form-control" id="upload-team" value="{{user.team|default:'-'}}">
+                </div>
+
+                <div class="mb-4 col-md-6">
+                    <label for="dashboard-team" class="form-label">Dashboard Team</label>
+                    <input type="text" class="form-control" id="dashboard-team" placeholder="Switzerland">
                 </div>
             </div>
-        </fieldset>
 
-        <fieldset>
-            <legend>{% trans 'Personal data' %}</legend>
-
-            <div class="row">
-                <div class="col-sm-6">
+            <!-- Personal Data -->
+            <div class="heading">Personal Data</div>
+            <div class="form-container row">
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="fname" class="form-label">First Name</label> -->
                     {% bootstrap_field form.first_name %}
+                    <!-- <input type="text" class="form-control" id="fname" value="{{ form.first_name }}"> -->
                 </div>
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="lname" class="form-label">Last Name</label> -->
+                    <!-- <input type="text" class="form-control" id="lname" value="{% bootstrap_field form.last_name %}"> -->
                     {% bootstrap_field form.last_name %}
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="salution" class="form-label">Salution</label> -->
+                    <!-- <input type="text" class="form-control" id="salution" value="{{ form.salutation }}"> -->
                     {% bootstrap_field form.salutation %}
                 </div>
-                <div class="col-sm-6">
+
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="title" class="form-label">Title</label> -->
+                    <!-- <input type="text" class="form-control" id="title" value="{{ form.title }}"> -->
                     {% bootstrap_field form.title %}
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="landline" class="form-label">Landline</label> -->
+                    <!-- <input type="number" class="form-control" id="password" value="{{ form.landline }}"> -->
                     {% bootstrap_field form.landline %}
                 </div>
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
+                    <!-- <label for="mobile" class="form-label">Mobile</label> -->
+                    <!-- <input type="number" class="form-control" id="password" value="{{ form.mobile }}"> -->
                     {% bootstrap_field form.mobile %}
                 </div>
             </div>
-        </fieldset>
 
-        <button class="btn btn-primary">{% trans 'Save' %}</button>
-    </form>
+            <button type="button" class="btn save-button">Save</button>
+        </div>
+
+        <div class="col-md-4 avatar-container">
+            <div class="text-center">
+                <img src="{% static 'images/avatar.jpg' %}" class="avatar">
+                <p class="desc">Profile Picture</p>
+                <a href="#">Edit</a>
+            </div>
+        </div>
+
+
+</div>
+
 {% endblock %}
-

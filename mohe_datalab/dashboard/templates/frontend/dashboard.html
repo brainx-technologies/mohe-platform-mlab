@@ -2,85 +2,280 @@
 {% load static compress datalab_tags bootstrap3 i18n %}
 
 {% block extra_head %}
-    {{ block.super }}
-    {% compress css %}
-        <link href="{% static 'stylesheets/dashboard.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/latest.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/map.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/number.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/radar.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/result_overlay.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/results.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/stock.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'datepicker/datepicker.min.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static 'gridstack/gridstack.min.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static instance.stylesheet %}" rel="stylesheet" type="text/x-scss">
-    {% endcompress %}
+{% compress css %}
+<link href="{% static 'stylesheets/dashboard.css' %}" rel="stylesheet">
+{% endcompress %}
 {% endblock %}
 
-{% block body_class %}dashboard{% if update %} update{% endif %}{% endblock %}
+{% block main_page %}
 
-{% block main %}
-    <div id="sidebar">
-        {% if update %}
-            <h3>{% trans 'Add Widget' %}</h3>
-            <form action="{% url 'widget_add' %}">
-                {% bootstrap_field widget_form.module %}
-                <input type="hidden" name="dashboard" value="{{ instance.id }}">
-                <button class="btn btn-default">{% trans 'Add' %}</button>
-            </form>
-        {% else %}
-            {% dashboard_filter instance %}
+<div class="row dashboard__page">
+    <div class="col-md-10 offset-md-1">
+        <!-- counts card -->
+        <div class="d-flex flex-wrap">
+            <div class="info-card custom-card position-relative">
+                <div>
+                    <div class="title">mPlex in Stock</div>
+                    <div class="number">16,278</div>
+                    <img class="mplex-icon" id="mPlexToggleBtn" src="{% static 'images/mplex-store-icon.svg' %}">
+                    <div id="mPlexContent" style="display: none;">
+                        <div class="row mt-4" style="width: 800px">
+                            <div class="col-md-7">
+                                <div class="heading">Remaining mPlex Stock</div>
+                                <canvas id="mPlexStockUsage"></canvas>
+                            </div>
+                            <div class="col-md-5 border-start">
+                                <div class="heading">mPlex Stock Usage</div>
+                                <div class="lables">
+                                    <div class="label row">
+                                        <div class="col-md-1">
+                                            <img src="{% static 'images/drug-of-abuse.svg' %}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            Drugs of Abuse
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3">3,568</div>
+                                    </div>
 
-            <a href="{% url 'dashboard_export' instance.pk %}?format=csv" class="btn btn-default" data-toggle="tooltip" title="{% trans 'Export dashboard data as CSV' %}">
-                CSV
-            </a>
-            <a href="{% url 'dashboard_export' instance.pk %}?format=xlsx" class="btn btn-default" data-toggle="tooltip" title="{% trans 'Export dashboard data as Excel' %}">
-                Excel
-            </a>
-            <a href="{{ instance.get_absolute_url }}?update=1" title="{% trans 'Reorganize dashboard' %}" class="btn btn-default" data-toggle="tooltip">
-                <i class="glyphicon glyphicon-move"></i>
-            </a>
-            <a href="{% url 'dashboard_update' instance.slug %}" title="{% trans 'Update dashboard' %}" class="btn btn-default" data-toggle="tooltip">
-                <i class="glyphicon glyphicon-edit"></i>
-            </a>
-        {% endif %}
-        <p>&nbsp;</p>
-    </div>
+                                    <div class="label row">
+                                        <div class="col-md-1">
+                                            <img src="{% static 'images/cardic.svg' %}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            Cardic
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3">0</div>
+                                    </div>
 
-    <div id="dashboard-content">
-        <div class="grid-stack">
-            {% for m in modules %}
-                {% with m=m.get_object %}
-                    {% include m.template %}
-                {% endwith %}
-            {% endfor %}
+                                    <div class="label row">
+                                        <div class="col-md-1">
+                                            <img src="{% static 'images/pandemic.svg' %}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            Pandemic
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3">4,892</div>
+                                    </div>
+
+
+                                    <div class="label row">
+                                        <div class="col-md-1">
+                                            <img src="{% static 'images/std.svg' %}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            STD
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3">4,892</div>
+                                    </div>
+
+                                    <div class="label row">
+                                        <div class="col-md-1">
+                                            <img src="{% static 'images/hepatitis.svg' %}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            Hepatitis
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3">100</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card custom-card">
+                <div>
+                    <div class="title">Active mReaders</div>
+                    <div class="number">125</div>
+                </div>
+            </div>
+
+            <div class="info-card custom-card bars">
+                <div>
+                    <div class="title">Total Tests</div>
+                    <div class="number">41,895</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
+                            class="number">6.9%</span>
+                    </div>
+                </div>
+                <div>
+                    <img class="bars-image" src="{% static 'images/bar-chart-light.svg' %}">
+                </div>
+            </div>
+
+            <div class="info-card custom-card bars">
+                <div>
+                    <div class="title">Positive Tests</div>
+                    <div class="number orange">3,497</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
+                            class="number">27.8%</span>
+                    </div>
+                </div>
+                <div>
+                    <img class="bars-image" src="{% static 'images/bar-chart-dark.svg' %}">
+                </div>
+            </div>
+
+            <div class="info-card custom-card bars">
+                <div class="">
+                    <div class="title">Negative Tests</div>
+                    <div class="number">38,398</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
+                            class="number">27.8%</span>
+                    </div>
+                </div>
+                <div class="">
+                    <img class="bars-image" src="{% static 'images/bar-chart-light.svg' %}">
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Table and Map -->
+        <div class="col-md-12 mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="custom-card">
+                        <table class="table">
+                            <thead class="table-light table-header" style="position: sticky;top: 0">
+                                <th scope="col">MEASUREMENT</th>
+                                <th scope="col">DATE/TIME</th>
+                                <th scope="col">TEAM</th>
+                                <th scope="col">mPlex</th>
+                                <th scope="col"></th>
+                                <th scope="col">POSITIVE</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#2458963</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>Switzerland</td>
+                                    <td>Drugs of Abuse</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>@Yes</td>
+                                </tr>
+                                <tr class="active">
+                                    <td>#2458962</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>France</td>
+                                    <td>Hepatitis</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>#2458963</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>Switzerland</td>
+                                    <td>Drugs of Abuse</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>@Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>#2458962</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>France</td>
+                                    <td>Hepatitis</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>No</td>
+                                </tr>
+                                <tr class="active">
+                                    <td>#2458963</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>Switzerland</td>
+                                    <td>Drugs of Abuse</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>@Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>#2458962</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>France</td>
+                                    <td>Hepatitis</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>No</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-card">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- charts -->
+        <div class="col-md-12 mt-4">
+            <div class="row">
+                <div class="col-md-8 module">
+                    <div class="custom-card">
+                        <canvas id="testsReports"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="custom-card module">
+                        <canvas id="teamActivity"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="col-md-1 text-center">
+        <div class="mb-3 mt-2">
+            <a href="#"><img src="{% static 'images/eidt.svg' %}"></a>
+        </div>
+        <div>
+            <a href="#"><img src="{% static 'images/cursor.svg' %}"></a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 
 {% block extra_js %}
-    {{ block.super }}
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
-    {% compress js %}
-        <!-- Maps abstraction -->
-        <script src="{% static 'markerclusterer/markerclusterer.js' %}"></script>
-        <script src="{% static 'js/frontend/maps_style.js' %}"></script>
-        <script src="{% static 'js/frontend/maps_google.js' %}"></script>
+<!-- Maps abstraction -->
 
-        <!-- HIGHCHARTS -->
-        <script src="{% static 'highcharts/highcharts.js' %}"></script>
-        <script src="{% static instance.highcharts_theme %}"></script>
-        <script src="{% static 'highcharts/maps/modules/map.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/frontend/chart.js' %}"></script>
+<script src="{% static 'js/frontend/chart.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-        <script src="{% static 'js/lodash.js' %}"></script>
-        <script src="{% static 'gridstack/gridstack.min.js' %}"></script>
-        <script src="{% static 'gridstack/gridstack.jQueryUI.min.js' %}"></script>
-        <script src="{% static 'datepicker/datepicker.min.js' %}"></script>
-        <script src="{% static 'js/frontend/resultoverlay.js' %}"></script>
-        <script src="{% static 'js/frontend/dashboard.js' %}"></script>
-    {% endcompress %}
-    {% module_scripts modules %}
+<script>
+    const toggleBtn = document.getElementById("mPlexToggleBtn");
+    const toggleDiv = document.getElementById("mPlexContent");
+
+    toggleBtn.addEventListener("click", function () {
+        if (toggleDiv.style.display === "none") {
+            toggleDiv.style.display = "block";
+        } else {
+            toggleDiv.style.display = "none";
+        }
+    });
+</script>
 {% endblock %}

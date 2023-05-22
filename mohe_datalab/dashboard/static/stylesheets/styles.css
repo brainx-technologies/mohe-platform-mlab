@@ -1,0 +1,210 @@
+body {
+    background-color: #F7F4F4;
+}
+
+.mohe-button {
+    margin-top: 60px;
+    background-color: #B879A6;
+    border-radius: 4px;
+    opacity: 1;
+    width: 185px;
+    height: 50px;
+    color: white;
+}
+
+.mohe-button:hover {
+    background-color: #873375;
+    color: white;
+    transform: scale(1.01);
+}
+
+
+/* Header bar styling */
+.header-bar {
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 6px #0000000A;
+    height: 70px;
+    align-items: center;
+    margin: 0 -10px;
+    padding: 0 10px;
+    margin-bottom: 40px;
+}
+
+.header-bar .icon {
+    margin-left: 10px;
+    height: 22px;
+    width: 16px;
+}
+
+.header-bar .search-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-bar .search-container .search-field {
+    color: #6E255E;
+    border: none;
+    outline: none;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+.header-bar .search-container .search-field:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.header-bar .notification {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-right: 2px solid #ebebf2;
+    padding-right: 30px;
+}
+
+.header-bar .profile {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.header-bar .profile .name {
+    line-height: 1;
+    color: #4D4F5C;
+    font-size: 12px;
+}
+
+.header-bar .profile .icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 12px;
+    cursor: pointer;
+}
+
+.header-bar .notification .dropdown-menu .avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+
+.header-bar .notification .dropdown-menu,
+.header-bar .profile .dropdown-menu {
+    padding: 16px 16px 10px 16px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px #00000027;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.header-bar .notification .dropdown-menu .dropdown-item,
+.header-bar .profile .dropdown-menu .dropdown-item {
+    border-bottom: 1px solid #F1F1F3;
+    color: #4D565C;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.header-bar .notification .dropdown-menu .dropdown-item {
+    text-align: left;
+    cursor: pointer;
+}
+.header-bar .notification .dropdown-menu .link{
+    padding: 10px 12px;
+    margin: auto;
+    text-align: center;
+}
+
+.header-bar .notification .dropdown-menu .link a{
+    color: #3B86FF;
+    text-decoration: unset;
+    font-size: 12px;
+}
+
+.header-bar .profile .dropdown-menu .dropdown-item:hover {
+    background-color: transparent;
+}
+
+.header-bar .profile .dropdown-menu .link:hover {
+    color: #6E255E;
+}
+
+.header-bar .profile .avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
+
+/* Header bar styling */
+
+/* Sidebar styling */
+.navigation-bar {
+    min-height: 100vh;
+    background-color: #6E255E;
+    color: white;
+}
+
+.navigation-bar .logo-bar {
+    background-color: #632154;
+}
+
+.navigation-bar .navlink-container__main {
+    margin-top: 50px;
+}
+
+.navigation-bar .navlink-container {
+    display: flex;
+    padding: 25px 0;
+    cursor: pointer;
+    padding-left: 20px;
+    border-left: 2px solid transparent;
+}
+
+.navigation-bar .navlink-container:hover {
+    background-color: #632154;
+    border-left: 2px solid #D66D6E;
+}
+
+.navigation-bar .navlink-container .logo {
+    margin-right: 12px;
+    height: 16px;
+}
+
+.navigation-bar .navlink-container .navlink {
+    font-family: "AvenirNext";
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-top: 2px;
+    line-height: 1;
+}
+
+.nav-link-logon-cont{
+    text-decoration: none;
+}
+
+/* Sidebar styling */
+
+
+
+/* Placeholder colors setting */
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #6E255E;
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #6E255E;
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #6E255E;
+}
+
+/* Placeholder colors setting */
