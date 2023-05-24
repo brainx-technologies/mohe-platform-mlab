@@ -16,7 +16,7 @@
             <div class="info-card custom-card position-relative">
                 <div>
                     <div class="title">mPlex in Stock</div>
-                    <div class="number">16,278</div>
+                    <div class="number" id="nbr-2">16,278</div>
                     <img class="mplex-icon" id="mPlexToggleBtn" src="{% static 'images/mplex-store-icon.svg' %}">
                     <div id="mPlexContent" style="display: none;">
                         <div class="row mt-4" style="width: 800px">
@@ -94,16 +94,16 @@
             <div class="info-card custom-card">
                 <div>
                     <div class="title">Active mReaders</div>
-                    <div class="number">125</div>
+                    <div class="number" id="nbr-1">125</div>
                 </div>
             </div>
 
             <div class="info-card custom-card bars">
                 <div>
                     <div class="title">Total Tests</div>
-                    <div class="number">41,895</div>
-                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
-                            class="number">6.9%</span>
+                    <div class="number" id="nbr-4">41,895</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
+                        <span class="number" id="pnbr-4">6.9%</span>
                     </div>
                 </div>
                 <div>
@@ -114,9 +114,11 @@
             <div class="info-card custom-card bars">
                 <div>
                     <div class="title">Positive Tests</div>
-                    <div class="number orange">3,497</div>
-                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
-                            class="number">27.8%</span>
+                    <div class="number orange" id="nbr-6">3,497</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
+                        <span class="number" id="pnbr-6">
+                            27.8%
+                        </span>
                     </div>
                 </div>
                 <div>
@@ -127,9 +129,11 @@
             <div class="info-card custom-card bars">
                 <div class="">
                     <div class="title">Negative Tests</div>
-                    <div class="number">38,398</div>
-                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}"><span
-                            class="number">27.8%</span>
+                    <div class="number" id="nbr-3">38,398</div>
+                    <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
+                        <span class="number" id="pnbr-3">
+                            27.8%
+                        </span>
                     </div>
                 </div>
                 <div class="">

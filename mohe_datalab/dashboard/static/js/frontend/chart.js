@@ -3,6 +3,16 @@ const ctx = document.getElementById('teamActivity');
 const ctxTests = document.getElementById('testsReports');
 const ctxStockUsage = document.getElementById('mPlexStockUsage');
 
+const nbr1 = document.getElementById("nbr-1");
+const nbr2 = document.getElementById("nbr-2");
+const nbr3 = document.getElementById("nbr-3");
+const nbr4 = document.getElementById("nbr-4");
+const nbr6 = document.getElementById("nbr-6");
+
+const pNbr3 = document.getElementById("pnbr-3");
+const pNbr4 = document.getElementById("pnbr-4");
+const pNbr6 = document.getElementById("pnbr-6");
+
 // var selector = "chart-" + moduleId;
 // var chartContainer = $('#' + selector);
 // var empty = $('#module-' + moduleId + ' .empty');
@@ -15,6 +25,7 @@ var updateInterval = 500;
 
 var fingerprint = "";
 
+// update team activity chart
 const chart = new Chart(ctx, {
 
     type: 'bar',
@@ -89,7 +100,9 @@ function updateChart() {
 }
 
 setTimeout(updateChart, updateInterval);
+// update team activity chart
 
+// update stock chart
 const stockChart = new Chart(ctxTests, {
     type: 'line',
     data: {
@@ -243,6 +256,7 @@ function updateStockChart() {
 }
 
 setTimeout(updateStockChart, updateInterval);
+// update stock chart
 
 new Chart(ctxStockUsage, {
     type: 'line',
@@ -315,6 +329,7 @@ new Chart(ctxStockUsage, {
     }
 });
 
+// get results data
 function getResults() {
 
     fetch("/api/frontend/results/13/")
@@ -322,7 +337,7 @@ function getResults() {
         .then((data) => {
 
             console.log("results :", data);
-        
+
         })
         .catch((error) => {
             console.error("Error fetching data: ", error);
@@ -330,3 +345,83 @@ function getResults() {
 }
 
 setTimeout(getResults, updateInterval);
+// get results data
+
+
+function updateNbr1() {
+    fetch("/api/frontend/number/3/")
+        .then((response) => response.json())
+        .then((data) => {
+
+            console.log("number :", data);
+            var html = data.period;
+
+            if (data.compare && data.period > 0) {
+
+                var diff = Math.round((data.period - data.compare) / data.period * 100);
+
+                if (diff > 0) {
+                    diff = '+' + diff;
+                }
+                else if (diff == 0) {
+                    diff = "&plusmn;0";
+                }
+
+                pNbr3.innerHTML = `${diff}+%`;
+            }
+            nbr1.innerHTML = html;
+
+        })
+        .catch((error) => {
+            console.error("Error fetching data: ", error);
+        });
+}
+
+setTimeout(updateNbr1, updateInterval);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DashboardModules.number = function (moduleId) {
+//     var selector = '#module-' + moduleId + " .body";
+//     var apiUrl = '/api/frontend/number/' + moduleId + '/';
+//     var updateInterval = 5000;
+
+//     function update() {
+//         $.get(apiUrl, function (data) {
+//             var html = data.period;
+
+//             if (data.compare && data.period > 0) {
+
+//                 var diff = Math.round((data.period - data.compare) / data.period * 100);
+
+//                 if (diff > 0) {
+//                     diff = '+' + diff;
+//                 }
+//                 else if (diff == 0) {
+//                     diff = "&plusmn;0";
+//                 }
+
+//                 html += ' <small>(' + diff + '%)</small>';
+//             }
+//             $(selector).html(html);
+//             window.setTimeout(update, updateInterval);
+//         });
+//     }
+
+//     update();
+// };
+
+
