@@ -1,0 +1,24 @@
+.module-number {
+  text-align: center;
+  line-height: 1.4;
+}
+.module-number .grid-stack-item-content {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+.module-number .grid-stack-item-content .heading {
+  border-radius: 0;
+  border: none !important;
+  line-height: 1;
+  padding: 0;
+  font-size: 12px;
+}
+.module-number .grid-stack-item-content .body {
+  font-size: 24px;
+  padding: 8px 0 0;
+  line-height: 1;
+}
+.module-number .grid-stack-item-content .body small {
+  font-size: 16px;
+}/*# sourceMappingURL=number.css.map */

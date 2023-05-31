@@ -7,11 +7,11 @@ const nbr1 = document.getElementById("nbr-1");
 const nbr2 = document.getElementById("nbr-2");
 const nbr3 = document.getElementById("nbr-3");
 const nbr4 = document.getElementById("nbr-4");
-const nbr6 = document.getElementById("nbr-6");
+const nbr5 = document.getElementById("nbr-5");
 
 const pNbr3 = document.getElementById("pnbr-3");
 const pNbr4 = document.getElementById("pnbr-4");
-const pNbr6 = document.getElementById("pnbr-6");
+const pNbr5 = document.getElementById("pnbr-5");
 
 // var selector = "chart-" + moduleId;
 // var chartContainer = $('#' + selector);
@@ -347,17 +347,17 @@ function getResults() {
 setTimeout(getResults, updateInterval);
 // get results data
 
-
-function updateNbr1() {
-    fetch("/api/frontend/number/3/")
+// get numbers module data
+function updateNbrs(moduleId) {
+    fetch(`/api/frontend/number/${moduleId}/`)
         .then((response) => response.json())
         .then((data) => {
 
-            console.log("number :", data);
+            console.log(`number${moduleId} data:`, data);
             var html = data.period;
 
             if (data.compare && data.period > 0) {
-
+                console.log("here");
                 var diff = Math.round((data.period - data.compare) / data.period * 100);
 
                 if (diff > 0) {
@@ -367,9 +367,51 @@ function updateNbr1() {
                     diff = "&plusmn;0";
                 }
 
-                pNbr3.innerHTML = `${diff}+%`;
+                switch (moduleId) {
+                    case 3:
+                        pNbr3.innerHTML = `${diff}+%`;
+                        break;
+                    case 4:
+                        pNbr4.innerHTML = `${diff}+%`;
+                        break;
+                    case 5:
+                        pNbr5.innerHTML = `${diff}+%`;
+                        break;
+                }
+
+            } else if ("compare" in data) {
+                
+                switch (moduleId) {
+                    case 3:
+                        pNbr3.innerHTML = '';
+                        break;
+                    case 4:
+                        pNbr4.innerHTML = '';
+                        break;
+                    case 5:
+                        pNbr5.innerHTML = '';
+                        break;
+                }
+
             }
-            nbr1.innerHTML = html;
+
+            switch (moduleId) {
+                case 1:
+                    nbr1.innerHTML = html;
+                    break;
+                case 2:
+                    nbr2.innerHTML = html;
+                    break;
+                case 3:
+                    nbr3.innerHTML = html;
+                    break;
+                case 4:
+                    nbr4.innerHTML = html;
+                    break;
+                case 5:
+                    nbr5.innerHTML = html;
+                    break;
+            }
 
         })
         .catch((error) => {
@@ -377,51 +419,8 @@ function updateNbr1() {
         });
 }
 
-setTimeout(updateNbr1, updateInterval);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// DashboardModules.number = function (moduleId) {
-//     var selector = '#module-' + moduleId + " .body";
-//     var apiUrl = '/api/frontend/number/' + moduleId + '/';
-//     var updateInterval = 5000;
-
-//     function update() {
-//         $.get(apiUrl, function (data) {
-//             var html = data.period;
-
-//             if (data.compare && data.period > 0) {
-
-//                 var diff = Math.round((data.period - data.compare) / data.period * 100);
-
-//                 if (diff > 0) {
-//                     diff = '+' + diff;
-//                 }
-//                 else if (diff == 0) {
-//                     diff = "&plusmn;0";
-//                 }
-
-//                 html += ' <small>(' + diff + '%)</small>';
-//             }
-//             $(selector).html(html);
-//             window.setTimeout(update, updateInterval);
-//         });
-//     }
-
-//     update();
-// };
-
+for (let i = 1; i < 6; i++) {
+    setTimeout(updateNbrs(i), updateInterval);
+}
+// get numbers module data
 

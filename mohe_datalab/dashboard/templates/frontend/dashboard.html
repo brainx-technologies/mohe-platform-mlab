@@ -16,7 +16,7 @@
             <div class="info-card custom-card position-relative">
                 <div>
                     <div class="title">mPlex in Stock</div>
-                    <div class="number" id="nbr-2">16,278</div>
+                    <div class="number" id="nbr-1">16,278</div>
                     <img class="mplex-icon" id="mPlexToggleBtn" src="{% static 'images/mplex-store-icon.svg' %}">
                     <div id="mPlexContent" style="display: none;">
                         <div class="row mt-4" style="width: 800px">
@@ -94,16 +94,16 @@
             <div class="info-card custom-card">
                 <div>
                     <div class="title">Active mReaders</div>
-                    <div class="number" id="nbr-1">125</div>
+                    <div class="number" id="nbr-2">125</div>
                 </div>
             </div>
 
             <div class="info-card custom-card bars">
                 <div>
                     <div class="title">Total Tests</div>
-                    <div class="number" id="nbr-4">41,895</div>
+                    <div class="number" id="nbr-3">41,895</div>
                     <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
-                        <span class="number" id="pnbr-4">6.9%</span>
+                        <span class="number" id="pnbr-3">6.9%</span>
                     </div>
                 </div>
                 <div>
@@ -114,9 +114,9 @@
             <div class="info-card custom-card bars">
                 <div>
                     <div class="title">Positive Tests</div>
-                    <div class="number orange" id="nbr-6">3,497</div>
+                    <div class="number orange" id="nbr-5">3,497</div>
                     <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
-                        <span class="number" id="pnbr-6">
+                        <span class="number" id="pnbr-5">
                             27.8%
                         </span>
                     </div>
@@ -129,9 +129,9 @@
             <div class="info-card custom-card bars">
                 <div class="">
                     <div class="title">Negative Tests</div>
-                    <div class="number" id="nbr-3">38,398</div>
+                    <div class="number" id="nbr-4">38,398</div>
                     <div class="percentage"><img src="{% static 'images/DownArrow.svg' %}">
-                        <span class="number" id="pnbr-3">
+                        <span class="number" id="pnbr-4">
                             27.8%
                         </span>
                     </div>
@@ -148,7 +148,7 @@
         <div class="col-md-12 mt-4">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="custom-card">
+                    <div class="custom-card tab-custom-card" style="overflow-y: auto; max-height: 300px;">
                         <table class="table">
                             <thead class="table-light table-header" style="position: sticky;top: 0">
                                 <th scope="col">MEASUREMENT</th>
@@ -219,8 +219,32 @@
                                     </td>
                                     <td>No</td>
                                 </tr>
+                                <tr class="active">
+                                    <td>#2458963</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>Switzerland</td>
+                                    <td>Drugs of Abuse</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>@Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>#2458962</td>
+                                    <td>Mar 15, 2024 9.45AM</td>
+                                    <td>France</td>
+                                    <td>Hepatitis</td>
+                                    <td>
+                                        <span class="dot"></span>
+                                    </td>
+                                    <td>No</td>
+                                </tr>
                             </tbody>
                         </table>
+
+                        <div class="text-center mt-3" id="seeMoreLink" style="display: none;">
+                            <a href="#">See More...</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -279,6 +303,18 @@
             toggleDiv.style.display = "block";
         } else {
             toggleDiv.style.display = "none";
+        }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const customCard = document.querySelector(".tab-custom-card");
+        const seeMoreLink = document.getElementById("seeMoreLink");
+
+        if (customCard.scrollHeight > customCard.clientHeight) {
+            seeMoreLink.style.display = "block";
+        } else {
+            seeMoreLink.style.display = "none";
         }
     });
 </script>

@@ -1,0 +1,33 @@
+.module-latest .body .results {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  overflow-y: scroll;
+}
+.module-latest .body .results h4 {
+  margin: 2px 0;
+}
+.module-latest .body .results .result {
+  padding: 10px 15px 5px 15px;
+  cursor: pointer;
+}
+.module-latest .body .results .result p {
+  margin: 2px 0;
+}
+.module-latest .body .results .result .status-clear {
+  border-right: 1px solid #ccc;
+  padding: 0 5px 0 0;
+}
+.module-latest .body .parameters {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  bottom: 0;
+  width: 50%;
+  padding: 0 15px;
+}
+.module-latest .body .parameters h4 {
+  padding: 2px 0 10px 0;
+}/*# sourceMappingURL=latest.css.map */

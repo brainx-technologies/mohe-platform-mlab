@@ -1,10 +1,12 @@
 from django.urls import path, include
+from django.contrib import admin
 
 import mohe_datalab.dashboard.views as dashboard_views
 import mohe_datalab.accounts.views as account_views
 import mohe_datalab.dashboard_alert.views as alert_views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('api/frontend/', include('mohe_datalab.api.urls')),
     path('auth/', include('django.contrib.auth.urls')),
 

@@ -1,8 +1,10 @@
 from mohe.settings.base import *
+import os
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -66,7 +68,7 @@ REST_FRAMEWORK = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],#os.path.join(BASE_DIR, 'templates/')
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +83,7 @@ TEMPLATES = [
                 'mohe_datalab.dashboard.context_processors.dashboards',
                 'mohe_datalab.dashboard.context_processors.config',
                 'mohe_datalab.dashboard_alert.context_processors.alerts',
-            ]
+            ],
         },
     },
 ]
