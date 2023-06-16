@@ -1,6 +1,5 @@
 from django import template
 
-from mohe.client.models import Team
 from mohe_datalab.dashboard.forms import DashboardFilterForm
 
 register = template.Library()
@@ -27,10 +26,7 @@ def dashboard_filter(context, instance):
     else:
         form = DashboardFilterForm(instance=instance)
 
-    dashboard_teams = [t for t in Team.objects.all()]
-
     return {
         'instance': instance,
-        'form': form,
-        'dashboard_teams': dashboard_teams
+        'form': form
     }

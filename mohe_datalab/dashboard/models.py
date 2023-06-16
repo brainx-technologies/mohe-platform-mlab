@@ -3,7 +3,6 @@ from django.db import models
 from django.urls.base import reverse
 from django.utils.translation import gettext_lazy as _
 
-from mohe.client.models import Team
 from mohe.measurement.models import Measurement
 from mohe_datalab.dashboard.constants import DashboardStyle, Numbers, Compare, DashboardPreset, Period
 
@@ -20,7 +19,6 @@ class Dashboard(models.Model):
                              help_text=_("The color scheme for this dashboard"))
 
     kplex = models.ForeignKey('kplex.Kplex', blank=True, null=True, verbose_name=_('kPlex'), on_delete=models.SET_NULL)
-    team = models.ForeignKey(Team, blank=True, null=True, verbose_name=_('team'), on_delete=models.SET_NULL)
     status = models.CharField(_('status'), max_length=10, choices=Measurement.Status.choices, blank=True)
 
     country = models.ForeignKey('geo.country', blank=True, null=True, verbose_name=_('country'),
@@ -50,11 +48,6 @@ class Dashboard(models.Model):
 
     def get_update_url(self):
         return reverse('dashboard_update', args=[self.pk])
-
-    def save(self, *args, **kwargs):
-        if self.team is None:
-            self.team = self.user.team
-        super(Dashboard, self).save(*args, **kwargs)
 
     class Meta:
         unique_together = ('user', 'slug')
@@ -168,15 +161,6 @@ class TriggerPerTest(DashboardModule):
     class Meta:
         verbose_name = _('trigger per parameter')
         verbose_name_plural = _('trigger per parameter')
-
-
-class TeamActivity(DashboardModule):
-    _width = 4
-    _height = 5
-
-    class Meta:
-        verbose_name = _('team activity')
-        verbose_name_plural = _('team activity')
 
 
 class DeviceCapacity(DashboardModule):

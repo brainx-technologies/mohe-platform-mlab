@@ -1,7 +1,6 @@
 import datetime
 import time
 
-from mohe.client.models import Team
 from mohe_datalab.dashboard.constants import Period, Compare
 from mohe.measurement.models import Measurement, Result
 
@@ -58,17 +57,7 @@ def _compare_interval(instance):
 
 
 def period_measurements(instance):
-    qs = Measurement.objects.all().exclude(status=Measurement.Status.EXPIRED)
-
-    team = instance.team
-    if not team:
-        team = instance.user.team
-
-    if team:
-        teams = Team.objects.all()
-        qs = qs.filter(team__in=teams)
-    else:
-        qs = qs.filter(user=instance.user)
+    qs = Measurement.objects.all()
 
     if instance.kplex:
         qs = qs.filter(kplex=instance.kplex)
@@ -83,16 +72,7 @@ def period_measurements(instance):
 
 
 def compare_measurements(instance):
-    qs = Measurement.objects.all().exclude(status=Measurement.Status.EXPIRED)
-
-    team = instance.team
-    if not team:
-        team = instance.user.team
-    if team:
-        teams = Team.objects.all()
-        qs = qs.filter(team__in=teams)
-    else:
-        qs = qs.filter(user=instance.user)
+    qs = Measurement.objects.all()
 
     if instance.kplex:
         qs = qs.filter(kplex=instance.kplex)
@@ -110,15 +90,6 @@ def compare_measurements(instance):
 def period_tests(instance):
     qs = Result.objects.all()
 
-    team = instance.team
-    if not team:
-        team = instance.user.team
-    if team:
-        teams = Team.objects.all()
-        qs = qs.filter(measurement__team__in=teams)
-    else:
-        qs = qs.filter(measurement__user=instance.user)
-
     if instance.kplex:
         qs = qs.filter(measurement__kplex=instance.kplex)
 
@@ -133,15 +104,6 @@ def period_tests(instance):
 
 def compare_tests(instance):
     qs = Result.objects.all()
-
-    team = instance.team
-    if not team:
-        team = instance.user.team
-    if team:
-        teams = Team.objects.all()
-        qs = qs.filter(measurement__team__in=teams)
-    else:
-        qs = qs.filter(measurement__user=instance.user)
 
     if instance.kplex:
         qs = qs.filter(measurement__kplex=instance.kplex)

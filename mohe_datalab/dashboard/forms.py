@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from mohe_datalab.dashboard.models import Dashboard, Number, Latest, TriggerPerKplex, Radar, Map, Results, \
-    TriggerPerTest, TeamActivity, DeviceCapacity, CountryModule, TestkitStock
+    TriggerPerTest, DeviceCapacity, CountryModule, TestkitStock
 from mohe.kplex.models import Kplex
 from mohe.measurement.models import Measurement
 from mohe_datalab.dashboard.util import map_initial_lat, map_initial_zoom, map_initial_lng
@@ -32,7 +32,7 @@ class DashboardFilterForm(forms.ModelForm):
 
     class Meta:
         model = Dashboard
-        fields = ('kplex', 'team', 'status',
+        fields = ('kplex', 'status',
                   'period', 'period_from', 'period_to',
                   'compare', 'compare_from', 'compare_to')
         widgets = {
@@ -101,12 +101,6 @@ class TriggerPerTestForm(forms.ModelForm):
         fields = ('title',)
 
 
-class TeamActivityForm(forms.ModelForm):
-    class Meta:
-        model = TeamActivity
-        fields = ('title',)
-
-
 class DeviceCapacityForm(forms.ModelForm):
     class Meta:
         model = DeviceCapacity
@@ -160,7 +154,6 @@ class Widgets(object):
         MAP: MapForm,
         RESULTS: ResultsForm,
         TRIGGER_PER_TEST: TriggerPerTestForm,
-        TEAM_ACTIVITY: TeamActivityForm,
         DEVICE_CAPACITY: DeviceCapacityForm,
         COUNTRY: CountryForm,
         TESTKIT_STOCK: TestkitStockForm
@@ -174,7 +167,6 @@ class Widgets(object):
         MAP: Map,
         RESULTS: Results,
         TRIGGER_PER_TEST: TriggerPerTest,
-        TEAM_ACTIVITY: TeamActivity,
         DEVICE_CAPACITY: DeviceCapacity,
         COUNTRY: CountryModule,
         TESTKIT_STOCK: TestkitStock

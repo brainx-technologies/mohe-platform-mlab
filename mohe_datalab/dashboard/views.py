@@ -14,9 +14,6 @@ from mohe_datalab.dashboard.forms import DashboardCreateForm, DashboardFilterFor
 from mohe_datalab.dashboard.util import init_user_dashboards, do_dashboard_reset
 
 
-#from mohe.alert.models import AlertTemplate, Alert
-
-
 def has_dastalab_access(user):
     return user.is_active and user.is_manager
 
@@ -181,4 +178,3 @@ def widget_form(request, pk=None):
         'form': form,
         'title': title
     })
-

@@ -1,5 +1,5 @@
 from mohe_datalab.dashboard.constants import DashboardPreset
-from mohe_datalab.dashboard.models import Dashboard, DashboardModule, TeamActivity, TriggerPerKplex, \
+from mohe_datalab.dashboard.models import Dashboard, DashboardModule, TriggerPerKplex, \
     TriggerPerTest, Radar, Map, Results, Number, TestkitStock
 from mohe.util.models import Configuration
 
@@ -53,7 +53,6 @@ def do_dashboard_reset(dashboard):
         TriggerPerTest(dashboard=dashboard, x=8, y=4, title='Positive tests per parameter').save()
 
         TriggerPerKplex(dashboard=dashboard, x=0, y=7, title='Positive tests per kPlex').save()
-        TeamActivity(dashboard=dashboard, x=4, y=7, title='Team activity').save()
         TestkitStock(dashboard=dashboard, x=8, y=7, title='kPlex Stock').save()
 
     if dashboard.preset == DashboardPreset.MAP:

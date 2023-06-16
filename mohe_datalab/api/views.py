@@ -8,9 +8,8 @@ from django.http.response import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 
 from mohe.alert.models import Alert
-from mohe.client.models import Team
 from mohe_datalab.dashboard.models import DashboardModule, Dashboard, Number, Latest, TriggerPerKplex, Radar, \
-    Results, TriggerPerTest, TeamActivity, CountryModule, TestkitStock, Map
+    Results, TriggerPerTest, CountryModule, TestkitStock, Map
 from mohe.diagnostics.models import Biomarker
 from mohe.geo.models import Province
 from mohe.hardware.models import Device
@@ -37,14 +36,12 @@ def dashboard(request):
     instance = get_object_or_404(Dashboard, pk=pk, user=request.user)
 
     if 'update' in request.GET:
-        instance.team_id = request.GET.get('team', None)
         instance.kplex_id = request.GET.get('kplex', None)
         instance.status = request.GET.get('status', '')
         instance.save()
 
     return {
         'status': instance.status,
-        'team': instance.team_id,
         'kplex': instance.kplex_id
     }
 
@@ -212,7 +209,7 @@ def results(request, pk):
         if q.isdigit():
             qs = qs.filter(id=q)
         else:
-            query = Q(title__icontains=q) | Q(team__name__icontains=q) | Q(device__serial_number__icontains=q)
+            query = Q(title__icontains=q) | Q(device__serial_number__icontains=q)
             qs = qs.filter(query)
 
     if instance.dashboard.status:
@@ -284,40 +281,6 @@ def trigger_per_test(request, pk):
         'period': period,
         'compare': compare,
         'parameters': parameters,
-        'fingerprint': ','.join(fingerprint),
-        'count': count
-    }
-
-
-@api
-def team_activity(request, pk):
-    instance = get_object_or_404(TeamActivity, pk=pk, dashboard__user=request.user)
-    _period = period_measurements(instance.dashboard)
-    _compare = compare_measurements(instance.dashboard)
-
-    categories = []
-    period = []
-    compare = []
-    fingerprint = []
-    count = 0
-
-    for team in Team.objects.all():
-        categories.append(team.name)
-
-        period_count = _period.filter(team=team).count()
-        period.append(period_count)
-        fingerprint.append(str(period_count))
-        count += period_count
-
-        compare_count = _compare.filter(team=team).count()
-        compare.append(compare_count)
-        fingerprint.append(str(compare_count))
-        count += compare_count
-
-    return {
-        'categories': categories,
-        'period': period,
-        'compare': compare,
         'fingerprint': ','.join(fingerprint),
         'count': count
     }

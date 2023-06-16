@@ -6,7 +6,7 @@ from mohe.client.models import User
 class SettingsForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'title', 'salutation', 'landline', 'mobile')
+        fields = ('first_name', 'last_name', 'title', 'landline', 'mobile')
 
 
 class SetupForm(forms.ModelForm):

@@ -13,7 +13,6 @@ urlpatterns = [
     path('radar/<int:pk>/', views.radar, name='radar'),
     path('map/<int:pk>/', views.map, name='map'),
     path('results/<int:pk>/', views.results, name='results'),
-    path('team-activity/<int:pk>/', views.team_activity, name='team_activity'),
     path('device-capacity/<int:pk>/', views.device_capacity, name='device_capacity'),
     path('country/<int:pk>/', views.country, name='country'),
     path('testkit-stock/<int:pk>/', views.testkit_stock, name='testkit_stock'),
