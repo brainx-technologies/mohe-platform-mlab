@@ -2,6 +2,10 @@ from mohe.settings.base import *
 
 PROJECT_DIR = Path(__file__).resolve().parent
 
+ALLOWED_HOSTS = [
+    'mlab.' + config.get('MOHE', 'DOMAIN')
+]
+
 # Application definition
 
 INSTALLED_APPS = [
