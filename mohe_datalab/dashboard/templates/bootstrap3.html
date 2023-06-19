@@ -1,5 +1,6 @@
 <!DOCTYPE html>{% load static compress %}
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +10,25 @@
     <link rel="apple-touch-icon" href="{% static 'images/mohe_logo.png' %}">
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <meta property="og:title" content="MOHE">
-    <meta property="og:description" content="The first 360°global screening and data management platform to offer truly portable, connected, geo-localized, real-time monitoring.">
+    <meta property="og:description"
+        content="The first 360°global screening and data management platform to offer truly portable, connected, geo-localized, real-time monitoring.">
     <meta property="og:image" content="{% static 'images/logo.png' %}">
     {% block extra_head %}{% endblock %}
 </head>
+
 <body class="{% block body_class %}{% endblock %}">
-<header>x
-    {% block header %}{% endblock %}
-</header>
-<main>
-    {% block main %}{% endblock %}
-</main>
-<footer>
-    {% block footer %}{% endblock %}
-</footer>
-<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-{% block extra_js %}{% endblock %}
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
+
 </html>
