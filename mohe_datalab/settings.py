@@ -1,5 +1,7 @@
 from mohe.settings.base import *
 
+PROJECT_DIR = Path(__file__).resolve().parent
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -66,7 +68,9 @@ REST_FRAMEWORK = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            PROJECT_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
