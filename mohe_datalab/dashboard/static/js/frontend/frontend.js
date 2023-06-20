@@ -47,15 +47,17 @@ if (currentUrl === '/dashboard/map/') {
     resultsLink.style.color = '#632154';
 } else if (currentUrl === '/dashboard/calendar/') {
     //to be implemented
-} else {
+} else if (currentUrl === '/') {
     dashboard.src = '/static/images/images/new_svgs/dashboard-dark.svg';
     dashboardLink.style.color = '#632154';
+} else {
+    console.log("current url :", currentUrl);
 }
 
 const toggleButton = document.getElementsByClassName('hamburger-icon')[0]
 const navbar = document.getElementsByClassName('nav-bar')[0]
 
 toggleButton.addEventListener('click', () => {
-    console.log("here",navbar);
+    console.log("here", navbar);
     navbar.classList.toggle('open');
 })
