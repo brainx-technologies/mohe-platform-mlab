@@ -1,36 +1,37 @@
-{% load i18n bootstrap3 %}
+{% load static i18n bootstrap3 %}
+
 <form method="post">
     {% csrf_token %}
     {% bootstrap_field form.period %}
     {% bootstrap_field form.period_from %}
     {% bootstrap_field form.period_to %}
-    {% bootstrap_field form.compare %}
-    {% bootstrap_field form.compare_from %}
-    {% bootstrap_field form.compare_to %}
-    <hr>
-    <h3>{% trans 'Choose kPlex' %}</h3>
-    <ul>
-        <li>
-            <label for="id_kplex_null">
-                <input type="radio" name="kplex" value="" id="id_kplex_null"
-                    {% if instance.kplex == None %}checked{% endif %}>
-                {% trans 'All' %}
-            </label>
-        </li>
-    </ul>
-    {{ form.kplex }}
-    <hr>
-    {% if dashboard_teams %}
-        <h3>{% trans 'Choose team' %}</h3>
+    <hr class="sidebar-hr">
+    <span class="heading">
+        <img src="{% static 'images/images/new_svgs/mplex.svg' %}">mPlex
+    </span>
+    <div class="kplex">
         <ul>
+            <li>
+                <label for="id_kplex_null">
+                    <input type="radio" name="kplex" value="" id="id_kplex_null" {% if instance.kplex is none %}checked
+                        {% endif %}>
+                    All
+                </label>
+            </li>
         </ul>
-        <hr>
-    {% endif %}
-    <div class="status-choices">
-        <h3>{% trans 'Choose Status' %}</h3>
-        <ul>
-            {{ form.status }}
-        </ul>
-        <hr>
+        {{ form.kplex }}
     </div>
+    <hr class="sidebar-hr">
+    {% if dashboard_teams %}
+    <span class="heading">
+        <img src="{% static 'images/images/new_svgs/teams.svg' %}">Teams
+    </span>
+    <div class="teams">
+        <ul>
+            
+        </ul>
+        {{ form.teams }}
+    </div>
+    <hr class="sidebar-hr">
+    {% endif %}
 </form>

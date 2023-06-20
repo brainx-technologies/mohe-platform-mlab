@@ -2,85 +2,104 @@
 {% load static compress datalab_tags bootstrap3 i18n %}
 
 {% block extra_head %}
-    {{ block.super }}
-    {% compress css %}
-        <link href="{% static 'stylesheets/dashboard.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/latest.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/map.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/number.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/radar.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/result_overlay.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/results.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'stylesheets/dashboard/stock.scss' %}" rel="stylesheet" type="text/x-scss">
-        <link href="{% static 'datepicker/datepicker.min.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static 'gridstack/gridstack.min.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static instance.stylesheet %}" rel="stylesheet" type="text/x-scss">
-    {% endcompress %}
+{{ block.super }}
+{% compress css %}
+<link href="{% static 'stylesheets/dashboard.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/latest.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/map.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/number.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/radar.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/result_overlay.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/results.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'stylesheets/dashboard/stock.scss' %}" rel="stylesheet" type="text/x-scss">
+<link href="{% static 'datepicker/datepicker.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'gridstack/gridstack.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static instance.stylesheet %}" rel="stylesheet" type="text/x-scss">
+{% endcompress %}
 {% endblock %}
 
 {% block body_class %}dashboard{% if update %} update{% endif %}{% endblock %}
 
 {% block main %}
-    <div id="sidebar">
+<div id="sidebar">
+    <div class="sidebar-sub-div">
         {% if update %}
-            <h3>{% trans 'Add Widget' %}</h3>
-            <form action="{% url 'widget_add' %}">
-                {% bootstrap_field widget_form.module %}
-                <input type="hidden" name="dashboard" value="{{ instance.id }}">
-                <button class="btn btn-default">{% trans 'Add' %}</button>
-            </form>
+        {% trans 'Add Widget' %}
+        <form action="{% url 'widget_add' %}">
+            {% bootstrap_field widget_form.module %}
+            <input type="hidden" name="dashboard" value="{{ instance.id }}">
+            <button class="btn btn-default">{% trans 'Add' %}</button>
+        </form>
         {% else %}
-            {% dashboard_filter instance %}
 
-            <a href="{% url 'dashboard_export' instance.pk %}?format=csv" class="btn btn-default" data-toggle="tooltip" title="{% trans 'Export dashboard data as CSV' %}">
-                CSV
-            </a>
-            <a href="{% url 'dashboard_export' instance.pk %}?format=xlsx" class="btn btn-default" data-toggle="tooltip" title="{% trans 'Export dashboard data as Excel' %}">
-                Excel
-            </a>
-            <a href="{{ instance.get_absolute_url }}?update=1" title="{% trans 'Reorganize dashboard' %}" class="btn btn-default" data-toggle="tooltip">
-                <i class="glyphicon glyphicon-move"></i>
-            </a>
-            <a href="{% url 'dashboard_update' instance.slug %}" title="{% trans 'Update dashboard' %}" class="btn btn-default" data-toggle="tooltip">
-                <i class="glyphicon glyphicon-edit"></i>
-            </a>
-        {% endif %}
-        <p>&nbsp;</p>
-    </div>
+        {% dashboard_filter instance %}
 
-    <div id="dashboard-content">
-        <div class="grid-stack">
-            {% for m in modules %}
-                {% with m=m.get_object %}
-                    {% include m.template %}
-                {% endwith %}
-            {% endfor %}
+        <div class="sidebar-icons">
+            <div class="sidebar-icon">
+                <a href="{% url 'dashboard_export' instance.pk %}?format=csv" data-toggle="tooltip"
+                    title="{% trans 'Export dashboard data as CSV' %}">
+                    <img src="{% static 'images/images/new_svgs/csv.svg' %}" />
+                </a>
+            </div>
+
+            <div class="sidebar-icon">
+                <a href="{% url 'dashboard_export' instance.pk %}?format=xlsx" data-toggle="tooltip"
+                    title="{% trans 'Export dashboard data as Excel' %}">
+                    <img src="{% static 'images/images/new_svgs/excel.svg' %}" />
+                </a>
+            </div>
+
+            <div class="sidebar-icon">
+                <a href="{{ instance.get_absolute_url }}?update=1" title="{% trans 'Reorganize dashboard' %}"
+                    data-toggle="tooltip">
+                    <img src="{% static 'images/images/new_svgs/cursor.svg' %}" />
+                </a>
+            </div>
+
+            <div class="sidebar-icon">
+                <a href="{% url 'dashboard_update' instance.slug %}" title="{% trans 'Update dashboard' %}"
+                    data-toggle="tooltip">
+                    <img src="{% static 'images/images/new_svgs/edit.svg' %}" />
+                </a>
+            </div>
         </div>
+        {% endif %}
     </div>
+</div>
+
+<div id="dashboard-content">
+    <div class="grid-stack">
+        {% for m in modules %}
+        {% with m=m.get_object %}
+        {% include m.template %}
+        {% endwith %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
 
 
 {% block extra_js %}
-    {{ block.super }}
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
-    {% compress js %}
-        <!-- Maps abstraction -->
-        <script src="{% static 'markerclusterer/markerclusterer.js' %}"></script>
-        <script src="{% static 'js/frontend/maps_style.js' %}"></script>
-        <script src="{% static 'js/frontend/maps_google.js' %}"></script>
+{{ block.super }}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
+{% compress js %}
+<!-- Maps abstraction -->
+<script src="{% static 'markerclusterer/markerclusterer.js' %}"></script>
+<script src="{% static 'js/frontend/maps_style.js' %}"></script>
+<script src="{% static 'js/frontend/maps_google.js' %}"></script>
 
-        <!-- HIGHCHARTS -->
-        <script src="{% static 'highcharts/highcharts.js' %}"></script>
-        <script src="{% static instance.highcharts_theme %}"></script>
-        <script src="{% static 'highcharts/maps/modules/map.js' %}"></script>
+<!-- HIGHCHARTS -->
+<script src="{% static 'highcharts/highcharts.js' %}"></script>
+<script src="{% static instance.highcharts_theme %}"></script>
+<script src="{% static 'highcharts/maps/modules/map.js' %}"></script>
 
-        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-        <script src="{% static 'js/lodash.js' %}"></script>
-        <script src="{% static 'gridstack/gridstack.min.js' %}"></script>
-        <script src="{% static 'gridstack/gridstack.jQueryUI.min.js' %}"></script>
-        <script src="{% static 'datepicker/datepicker.min.js' %}"></script>
-        <script src="{% static 'js/frontend/resultoverlay.js' %}"></script>
-        <script src="{% static 'js/frontend/dashboard.js' %}"></script>
-    {% endcompress %}
-    {% module_scripts modules %}
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/lodash.js' %}"></script>
+<script src="{% static 'gridstack/gridstack.min.js' %}"></script>
+<script src="{% static 'gridstack/gridstack.jQueryUI.min.js' %}"></script>
+<script src="{% static 'datepicker/datepicker.min.js' %}"></script>
+<script src="{% static 'js/frontend/resultoverlay.js' %}"></script>
+<script src="{% static 'js/frontend/dashboard.js' %}"></script>
+{% endcompress %}
+{% module_scripts modules %}
 {% endblock %}

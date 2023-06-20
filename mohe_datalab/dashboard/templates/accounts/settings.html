@@ -1,79 +1,104 @@
 {% extends "frontend/base.html" %}
-{% load i18n bootstrap3 %}
+{% load static compress bootstrap3 i18n %}
 
-{% block body_class %}settings{% endblock %}
+{% block extra_head %}
+{% compress css %}
+<link href="{% static 'stylesheets/settings.css' %}" rel="stylesheet">
+<link href="{% static 'stylesheets/frontend.scss' %}" rel="stylesheet" type="text/x-scss">
+{% endcompress %}
+{% endblock %}
 
 {% block panel-body %}
-    <form method="post">{% csrf_token %}
+
+<div class="sidebar"></div>
+
+
+<form method="post">{% csrf_token %}
+    <div class="row content-container settings_main">
         {% if form.errors %}
-            <p class="alert alert-danger">
-                {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
-                    {% trans "Please correct the errors below." %}{% endif %}
-            </p>
+        <p class="alert alert-danger">
+            {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
+            {% trans "Please correct the errors below." %}{% endif %}
+        </p>
         {% endif %}
 
-        <fieldset>
-            <legend>{% trans 'Login details' %}</legend>
-            <div class="row">
-                <div class="col-sm-6">
+        <div class="col-md-8">
+            <div class="heading">Login Details</div>
+
+            <div class="form-container row">
+
+                <div class="mb-4 col-md-6">
                     <div class="form-group">
-                        <label class="control-label">{% trans 'E-mail' %}</label>
-                        <p>
-                            {{ user.email }}
-                        </p>
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" value="{{ user.email }}">
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
                     <div class="form-group">
-                        <label class="control-label">{% trans 'password' %}</label>
-                        <p>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="form-control" style="display: flex; align-items: center;">
                             <a href="{% url 'password_change' %}">{% trans 'Change your password' %}</a>
-                        </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+
+                <div class="mb-4 col-md-6">
                     <div class="form-group">
-                        <label>{% trans 'Team for result upload' %}</label>
-                        <p>{{ user.team|default:'-' }}</p>
+                        <label for="upload-team" class="form-label">Team for Result Upload</label>
+                        <input type="text" class="form-control" id="upload-team" value="{{user.team|default:'-'}}">
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6">
+                    <div class="form-group">
+                        <label for="dashboard-team" class="form-label">Dashboard Team</label>
+                        <input type="text" class="form-control" id="dashboard-team" placeholder="Switzerland">
                     </div>
                 </div>
             </div>
-        </fieldset>
 
-        <fieldset>
-            <legend>{% trans 'Personal data' %}</legend>
 
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="heading">Personal Data</div>
+
+            <div class="form-container row">
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.first_name %}
                 </div>
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.last_name %}
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.salutation %}
                 </div>
-                <div class="col-sm-6">
+
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.title %}
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.landline %}
                 </div>
-                <div class="col-sm-6">
+                <div class="mb-4 col-md-6">
                     {% bootstrap_field form.mobile %}
                 </div>
             </div>
-        </fieldset>
+        </div>
+        <div class="col-md-4 avatar-container">
+            <div class="text-center">
+                <img src="{% static 'images/images/avatar.jpg' %}" class="avatar">
+                <p class="desc">Profile Picture</p>
+                <a href="#">Edit</a>
+            </div>
+        </div>
+    </div>
+    <div class="row form_button_div">
+        <div class="col-sm-12">
+            <button type="submit" class="btn save-button">Save</button>
+        </div>
 
-        <button class="btn btn-primary">{% trans 'Save' %}</button>
-    </form>
+    </div>
+
+
+</form>
+
+
 {% endblock %}
-

@@ -8,67 +8,93 @@
 {% endblock %}
 
 {% block header %}
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#main-navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'images/logo.png' %}">
-            </a>
-            <a class="navbar-brand" href="/">MOHE</a>
+
+
+
+<nav class="header-bar navbar-default">
+    <div class="nav-bar-brand">
+        <a href="/">
+            <img src="{% static 'images/images/navbar-logo.png' %}">
+        </a>
+    </div>
+
+    <!-- hamburger icon -->
+    <img class="hamburger-icon" src="{% static 'images/images/new_svgs/Menu.svg' %}" />
+    <!-- hamburger icon -->
+
+    <div class="nav-bar">
+
+        <!-- nav menu links -->
+        <div class="nav-bar-menu">
+            <div class="nav-bar-link">
+                <a href="/" id="dashboard-link">
+                    <img id="dashboard-svg" src="{% static 'images/images/new_svgs/dashboard.svg' %}">
+                    <div>Dashboard</div>
+                </a>
+            </div>
+            <div class="nav-bar-link">
+                <a href="/dashboard/map/" id="map-link">
+                    <img id="map-svg" src="{% static 'images/images/new_svgs/map.svg' %}">
+                    <div>Map</div>
+                </a>
+            </div>
+            <div class="nav-bar-link">
+                <a href="/dashboard/results/" id="results-link">
+                    <img id="results-svg" src="{% static 'images/images/new_svgs/results.svg' %}">
+                    <div>Results</div>
+                </a>
+            </div>
+            <div class="nav-bar-link">
+                <a href="#">
+                    <img id="calendar-svg" src="{% static 'images/images/new_svgs/calender.svg' %}">
+                    <div>Calendar</div>
+                </a>
+            </div>
         </div>
+        <!-- nav menu links -->
 
-        <div class="collapse navbar-collapse" id="main-navbar-collapse">
-            <ul class="nav navbar-nav" id="navbar-dashboard">
-                {% for dashboard in dashboards %}
-                <li class="{% if instance == dashboard %}active{% endif %}">
-                    <a href="{{ dashboard.get_absolute_url }}">{{ dashboard.title }}</a>
-                </li>
-                {% endfor %}
-                <li class="{{ nav_alerts_active }}">
-                    <a href="{% url 'alerts' %}">
-                        {% trans 'Alerts' %}
-                        <span class="label label-danger" id="alert-count"
-                              style="display: none;">{{ has_alerts }}</span>
-                    </a>
-                </li>
+        <!-- nav right section -->
+        <div class="nav-bar-right">
 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if can_update_dashboard %}
-                <li>
-                </li>
-                {% endif %}
-                {% if can_add_dashboard %}
-                <li>
-                    <a href="{% url 'dashboard_add' %}" id="nav-dashboard-add" title="{% trans 'Add dashboard' %}"
-                       data-toggle="tooltip" data-placement="bottom">
-                        <i class="glyphicon glyphicon-plus"></i>
-                    </a>
-                </li>
-                {% endif %}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false" id="nav-account">
-                        <i class="glyphicon glyphicon-user"></i>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a id="nav-account-settings" href="{% url 'settings' %}">{% trans 'Settings' %}</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{% url 'logout' %}" id="nav-account-logout">{% trans 'Log out' %}</a></li>
+            <div class="search-container">
+                <span><img src="{% static 'images/images/search.svg' %}"></span>
+                <input type="text" class="search-field" id="search" placeholder="Search result & health data">
+            </div>
+
+            <div class="alerts">
+                <a href="{% url 'alerts' %}">
+                    <img src="{% static 'images/images/notification.svg' %}">
+                </a>
+            </div>
+
+            <div class="profile">
+                <div class="name">Jhon Doe</div>
+
+                <div class="dropdown">
+                    <img src="{% static 'images/images/small-down.svg' %}" class="icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-right custom-dropdown">
+                        <li>
+                            <div class="dropdown-item">
+                                <b>Status:</b> Online
+                            </div>
+                        </li>
+                        <li>
+                            <a class="dropdown-item link" href="{% url 'settings' %}">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item link" href="{% url 'logout' %}">Logout</a>
+                        </li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+
+                <img src="{% static 'images/images/avatar.jpg' %}" class="avatar">
+            </div>
         </div>
+        <!-- nav right section -->
+
     </div>
 </nav>
+
 {% bootstrap_messages %}
 {% endblock %}
 

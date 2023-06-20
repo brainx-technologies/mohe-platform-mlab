@@ -1,0 +1,158 @@
+main {
+    width: 100%;
+}
+
+.panel-heading {
+    display: none;
+}
+
+.container-fluid {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.panel {
+    border-color: none !important;
+    border: none !important;
+    margin: 0 !important;
+    height: 100% !important;
+    width: 100%;
+}
+
+.panel-body {
+    height: 100% !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+
+.sidebar {
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 7rem;
+    bottom: 0;
+    left: 0;
+    background-color: #6E255E;
+
+    z-index: 999;
+    width: 15%;
+}
+
+form {
+    background-color: #F7F4F4 !important;
+    position: fixed;
+    top: 7rem;
+    left: 15%;
+    width: 85%;
+    height: 100%;
+    overflow: auto;
+}
+
+.settings_main {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    padding: 6rem 6rem 0px 6rem !important;
+}
+
+.content-container .heading {
+    font-family: "AvenirNext", sans-serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0px;
+    color: #6E255E;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.content-container .form-container label {
+    color: #6E255E;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    font-weight: normal;
+}
+
+.content-container .form-container .form-control {
+    border: none;
+    height: 6rem;
+    border-radius: 1rem;
+    color: #6E255E;
+    box-shadow: 0px 2px 6px #0000000A;
+
+}
+
+.content-container .form-container .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.save-button {
+    background-color: #6E255E;
+    border-radius: 1rem;
+    opacity: 1;
+    width: 17rem;
+    height: 6rem;
+    color: white;
+
+}
+
+.save-button:hover {
+    background-color: #873375;
+    color: white;
+    transform: scale(1.01);
+}
+
+
+.content-container .avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.content-container .avatar-container .avatar {
+    height: 13.8rem;
+    width: 13.8rem;
+    border-radius: 6.9rem;
+}
+
+.content-container .avatar-container .desc {
+    color: #6E255E;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form_button_div {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding: 5rem 6rem 0rem 6rem !important;
+}
+
+
+@media (max-width: 992px) {
+    .content-container .avatar-container {
+        margin: 5% 0;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    form {
+        position: static;
+        width: 100%;
+    }
+
+    .form_button_div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem !important;
+    }
+}
