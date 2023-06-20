@@ -59,10 +59,3 @@ toggleButton.addEventListener('click', () => {
     console.log("here",navbar);
     navbar.classList.toggle('open');
 })
-
-// $(document).ready(function () {
-//     $('.hamburger-icon').click(function () {
-//         console.log("Here----");
-//         $('.nav-bar').toggleClass('open');
-//     });
-// });
