@@ -2,9 +2,9 @@
 {% load static compress bootstrap3 i18n %}
 
 {% block extra_head %}
+{{ block.super }}
 {% compress css %}
 <link href="{% static 'stylesheets/settings.css' %}" rel="stylesheet">
-<link href="{% static 'stylesheets/frontend.scss' %}" rel="stylesheet" type="text/x-scss">
 {% endcompress %}
 {% endblock %}
 

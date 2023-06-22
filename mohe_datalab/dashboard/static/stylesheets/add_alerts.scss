@@ -1,0 +1,322 @@
+main {
+    width: 100%;
+
+    .container {
+        width: 100%;
+        padding: 0;
+
+
+        .panel {
+
+            height: 100%;
+            position: fixed;
+            display: block;
+            position: fixed;
+            top: 7rem;
+            left: 15%;
+            overflow-y: auto;
+
+
+            margin: 0;
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            width: 85%;
+
+            background-color: #F7F4F4;
+
+            .panel-body {
+                padding: 0;
+                padding: 7rem 7rem 7rem 16rem;
+
+                .panel-heading {
+                    padding: 0;
+                    border-bottom: none;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+
+                    color: #6E255E;
+                    margin-bottom: 1.5rem;
+                    font-weight: bold;
+                    font-size: 2.4rem;
+                }
+
+                form {
+
+                    .form-group {
+                        margin: 0 !important;
+                        margin-bottom: 1rem !important;
+
+                        label {
+                            display: none;
+                        }
+
+                        :last-child {
+                            display: block !important;
+                        }
+
+                        &:nth-of-type(2) {
+                            textarea {
+                                height: 16rem !important;
+                                padding-top: 2rem;
+                            }
+                        }
+
+                        .col-md-9 {
+                            padding: 0;
+                            width: 100%;
+                        }
+
+                        .form-control {
+                            display: block;
+                            height: 6rem;
+                            font-size: 1.4rem;
+                            color: #6E255E;
+                            background-color: #ffffff;
+                            border-radius: 1rem;
+                            border: none !important;
+
+                            &::placeholder {
+                                color: #6E255E;
+                            }
+                        }
+
+                        // .checkbox {
+                        //     display: flex;
+                        //     align-items: center;
+                        //     height: 5rem;
+                        //     padding: 0.5rem;
+
+                        //     label {
+                        //         color: #6E255E;
+                        //         display: flex;
+                        //         align-items: center;
+                        //         margin-left: 2rem;
+
+                        //         input[type="checkbox"] {
+                        //             /* Hide the default radio button */
+                        //             appearance: none;
+                        //             -moz-appearance: none;
+                        //             -webkit-appearance: none;
+                        //             /* Set the size of the radio button */
+                        //             width: 3rem;
+                        //             height: 3rem;
+                        //             background-color: #FFFFFF;
+                        //             /* Add border */
+                        //             border: 1px solid #905883;
+                        //             /* Replace #000000 with your desired border color */
+                        //             /* Add border-radius to make it round */
+                        //             border-radius: 50%;
+                        //             /* Replace #ffffff with your desired background color */
+                        //         }
+
+                        //         /* Style the inner circle */
+                        //         input[type="checkbox"]::before {
+                        //             content: "";
+                        //             position: absolute;
+                        //             top: 50%;
+                        //             left: 50%;
+                        //             transform: translate(-50%, -50%);
+                        //             width: 60%;
+                        //             height: 60%;
+                        //             border-radius: 50%;
+                        //             /* Replace transparent with your desired color */
+                        //             transition: background-color 0.3s ease;
+                        //         }
+
+                        //         input[type='checkbox']:after {
+                        //             content: '';
+                        //             display: none;
+                        //         }
+
+                        //         /* Change the color of the checked inner circle */
+                        //         input[type="checkbox"]:checked::before {
+                        //             /* Set the color for the checked inner circle */
+                        //             background: #905883;
+                        //             border: 1px solid #905883;
+                        //             /* Replace #F7F4F4 with your desired color */
+                        //         }
+                        //     }
+                        // }
+
+                        // .checkbox {
+                        //     display: flex !important;
+                        //     align-items: center;
+                        //     width: 15rem;
+                        //     height: 5rem;
+                        //     padding: 0.5rem;
+
+                        //     label {
+                        //         color: #6E255E;
+                        //         display: flex !important;
+                        //         align-items: center;
+
+                        //         input[type="checkbox"] {
+                        //             // Hide the default checkbox
+                        //             appearance: none;
+                        //             -moz-appearance: none;
+                        //             -webkit-appearance: none;
+                        //             // Set the size of the checkbox
+                        //             width: 3rem;
+                        //             height: 3rem;
+                        //             background-color: #FFFFFF;
+                        //             // Add border
+                        //             border: 1px solid #905883;
+                        //             // Add border-radius to make it round
+                        //             border-radius: 50%;
+                        //             // Add margin to create space between checkbox and label
+                        //             margin-right: 2rem;
+
+                        //             // Style the inner circle
+                        //             &::before {
+                        //                 content: "";
+                        //                 position: absolute;
+                        //                 top: 50%;
+                        //                 left: 50%;
+                        //                 transform: translate(-50%, -50%);
+                        //                 width: 60%;
+                        //                 height: 60%;
+                        //                 border-radius: 50%;
+                        //                 // Replace transparent with your desired color
+                        //                 transition: background-color 0.3s ease;
+                        //             }
+                        //         }
+
+                        //         // Change the color of the checked inner circle
+                        //         input[type="checkbox"]:checked::before {
+                        //             // Set the color for the checked inner circle
+                        //             background: #905883;
+                        //             border: 1px solid #905883;
+                        //             // Replace #F7F4F4 with your desired color
+                        //         }
+                        //     }
+                        // }
+
+                        // .checkbox {
+                        //     display: flex !important;
+                        //     align-items: center;
+                        //     width: 15rem;
+                        //     height: 5rem;
+                        //     padding: 0.5rem;
+
+                        //     label {
+                        //         padding-left: 0;
+                        //         color: #6E255E;
+                        //         display: flex !important;
+                        //         align-items: center;
+
+                        //         input[type="checkbox"] {
+                        //             // Hide the default checkbox
+                        //             appearance: none;
+                        //             -moz-appearance: none;
+                        //             -webkit-appearance: none;
+                        //             // Set the size of the checkbox
+                        //             width: 3rem;
+                        //             height: 3rem;
+                        //             background-color: #FFFFFF;
+                        //             // Add border
+                        //             border: 1px solid #905883;
+                        //             // Add border-radius to make it round
+                        //             border-radius: 50%;
+                        //             // Add margin to create space between checkbox and label
+                        //             margin-right: 1rem;
+
+                        //             // Style the inner circle
+                        //             &::before {
+                        //                 content: "";
+                        //                 position: absolute;
+                        //                 top: 50%;
+                        //                 left: 50%;
+                        //                 transform: translate(-50%, -50%);
+                        //                 width: 60%;
+                        //                 height: 60%;
+                        //                 border-radius: 50%;
+                        //                 // Replace transparent with your desired color
+                        //                 transition: background-color 0.3s ease;
+                        //             }
+                        //         }
+
+                        //         // Change the color of the checked inner circle
+                        //         input[type="checkbox"]:checked::before {
+                        //             // Set the color for the checked inner circle
+                        //             background: #905883;
+                        //             border: 1px solid #905883;
+                        //             // Replace #F7F4F4 with your desired color
+                        //         }
+                        //     }
+                        // }
+
+
+                    }
+
+                    .pull-right {
+                        button {
+                            width: 12rem;
+                            height: 6rem;
+                            background-color: #873375;
+                            color: #FFFFFF;
+                            border: none;
+                            border-radius: 1rem;
+                            line-height: normal;
+
+                            &:hover {
+
+                                background-color: #6E255E;
+                                color: white;
+                                transform: scale(1.01);
+                            }
+                        }
+                    }
+
+                    .btn,
+                    .btn-default {
+                        padding: 2.1rem 1.2rem !important;
+                        border-radius: 1rem !important;
+                        width: 12rem;
+                        height: 6rem;
+                        line-height: normal;
+                    }
+                }
+            }
+
+        }
+
+        .sidebar {
+            height: 100%;
+            display: block;
+            position: fixed;
+            top: 7rem;
+            bottom: 0;
+            left: 0;
+            background-color: #6E255E;
+
+            z-index: 1;
+            width: 15%;
+        }
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    main {
+
+        .container {
+
+            .panel {
+                width: 100%;
+                left: 0;
+
+                .panel-body {
+                    padding: 7rem;
+                }
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+    }
+}
