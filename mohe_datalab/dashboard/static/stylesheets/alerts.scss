@@ -123,7 +123,7 @@ main {
 
                     .table-wrapper {
                         max-height: 14rem;
-                        overflow: auto;
+                        overflow-y: auto;
                         margin-bottom: 2rem;
 
                         /* ... Existing styles ... */
@@ -206,33 +206,18 @@ main {
                     width: 100%;
                     max-height: 400px;
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
-                    // .heading {}
-
-                    // .table {}
+                    border-right: none;
+                    margin-bottom: 2rem;
                 }
 
                 .alert_config {
+                    padding: 0;
                     width: 100%;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-
-                    .heading {}
-
-                    .alerts_table_div {
-                        .table {
-                            tr {
-                                th {}
-
-                                td {}
-                            }
-                        }
-
-                        .add_alerts_icon {
-                            a {}
-                        }
-                    }
                 }
 
             }
