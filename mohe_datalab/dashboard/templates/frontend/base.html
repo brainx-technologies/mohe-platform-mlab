@@ -62,8 +62,9 @@
             </div>
 
             <div class="alerts">
-                <a href="{% url 'alerts' %}">
-                    <img src="{% static 'images/images/notification.svg' %}">
+                <a href="#" id="alerts-link">
+                    <img src="{% static 'images/images/notification.svg' %}" id="notification-svg" />
+                    <img src="{% static 'images/images/notification_with_alert.svg' %}" id="alert-svg" style="display: none;" />
                 </a>
             </div>
 
@@ -71,7 +72,8 @@
                 <div class="name">Jhon Doe</div>
 
                 <div class="dropdown">
-                    <img src="{% static 'images/images/small-down.svg' %}" class="icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'images/images/small-down.svg' %}" class="icon dropdown-toggle"
+                        data-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-right custom-dropdown">
                         <li>
                             <div class="dropdown-item">

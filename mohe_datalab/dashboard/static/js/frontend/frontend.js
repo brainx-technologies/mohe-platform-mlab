@@ -1,29 +1,45 @@
-// ALERTS
+// Function to update the image based on the alerts count
+function updateImage(alertsCount) {
+    var notificationImage = document.getElementById('notification-svg');
+    var alertImage = document.getElementById('alert-svg');
 
-(function () {
-    var apiUrl = '/api/frontend/alert/count/';
-    var updateInterval = 5000;
+    if (alertsCount > 0) {
+        notificationImage.style.display = 'none';
+        alertImage.style.display = 'block';
+    } else {
+        notificationImage.style.display = 'block';
+        alertImage.style.display = 'none';
+    }
+}
+// Function to fetch alerts count from the API
+function fetchAlertsCount() {
+    // Make an AJAX request to the API endpoint
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/frontend/alert/count/', true);
 
-    var checkForAlerts = function () {
-        $.get(apiUrl, function (data) {
-            if (data.new == 0) {
-                $('#alert-count').hide();
-            } else {
-                $('#alert-count').text(data.new);
-                $('#alert-count').fadeIn();
-            }
-        });
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            var alertsCount = response.new;
+
+            updateImage(alertsCount);
+        }
     };
 
-    $(document).ready(function () {
-        window.setInterval(checkForAlerts, updateInterval);
-    });
+    xhr.send();
+}
+// Fetch alerts count initially
+fetchAlertsCount();
+// Fetch alerts count every 5000ms
+setInterval(fetchAlertsCount, 5000);
 
-    $('[data-toggle=tooltip]').tooltip({ container: 'body' })
 
 
 
-}());
+
+
+
+
 
 // Get the current page URL
 var currentUrl = window.location.pathname;
@@ -58,6 +74,5 @@ const toggleButton = document.getElementsByClassName('hamburger-icon')[0]
 const navbar = document.getElementsByClassName('nav-bar')[0]
 
 toggleButton.addEventListener('click', () => {
-    console.log("here", navbar);
     navbar.classList.toggle('open');
 })

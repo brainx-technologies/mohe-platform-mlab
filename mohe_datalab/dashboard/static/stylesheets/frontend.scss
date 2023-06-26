@@ -50,15 +50,16 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0px 2rem 0px 0px;
+      padding: 1.5rem 2rem 1rem 3rem;
 
       .nav-bar-menu {
-        padding: 1.2rem 1.2rem 0rem 2.5rem;
         font-size: 1.7rem;
         display: flex;
 
         .nav-bar-link {
-          padding: 0.3rem 1rem;
+          width: auto;
+          height: 2.5rem !important;
+          padding: 0rem 1.3rem;
           border-right: 1px solid #dddde6;
 
           a {
@@ -110,14 +111,15 @@ header {
         }
 
         .alerts {
-          padding: 0.4rem 1.2rem 0.8rem 1.2rem;
+          height: 2.5rem !important;
+          padding: 0.4rem 1.5rem 0.8rem 1.5rem;
           border-right: 1.5px solid #dddde6;
         }
 
         .profile {
           display: flex;
           align-items: center;
-          padding-left: 3rem;
+          padding-left: 1.5rem;
 
           .name {
             line-height: 1;
@@ -205,7 +207,7 @@ header {
 @media (max-width: 768px) {
 
   html {
-    font-size: 40%;
+    font-size: 50%;
   }
 
   header {
@@ -228,66 +230,86 @@ header {
           display: block !important;
           z-index: 999;
           padding: 0;
-        }
-
-        .nav-bar-menu {
-          display: block;
-          width: 100%;
-          padding: 0;
+          margin: 0;
           padding: 1.5rem;
 
 
-          .nav-bar-link {
+          .nav-bar-menu {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 2rem;
+            
+
+
+            .nav-bar-link {
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              border-bottom: 1px solid #dddde6;
+              border-right: none;
+              margin-bottom: 2rem;
+
+              a {
+                align-items: baseline;
+                img {
+                  width: 2.2rem;
+                  height: 2.2rem;
+                }
+              }
+            }
+          }
+
+          .nav-bar-right {
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: start;
-            border-bottom: 1px solid #dddde6;
-            border-right: none;
+            align-items: end;
+            padding: 0;
+            margin: 0;
+
+            .alerts {
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              margin-bottom: 2rem;
+              padding: 0rem 1rem;
+              border-bottom: 1px solid #dddde6;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              border-right: none;
+            }
+
+            .profile {
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              margin-bottom: 1rem;
+              padding: 0rem 1rem;
+              border-bottom: 1px solid #dddde6;
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+            }
+
+            .search-container {
+              width: 100%;
+              padding: 0;
+              margin: 0;
+              margin-bottom: 2rem;
+              padding: 0rem 1rem;
+              border-bottom: 1px solid #dddde6;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              border-radius: 0.9rem;
+            }
           }
         }
 
-        .nav-bar-right {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: end;
-          padding: 0;
-          margin: 0;
-          padding: 0rem 1.5rem 1.5rem 1.5rem;
 
-          .alerts {
-            width: 100%;
-            padding: 0;
-            padding: 0.3rem 1rem;
-            border-bottom: 1px solid #dddde6;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            border-right: none;
-          }
-
-          .profile {
-            width: 100%;
-            padding: 0;
-            padding: 0.3rem 1rem;
-            border-bottom: 1px solid #dddde6;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-          }
-
-          .search-container {
-            width: 100%;
-            padding: 0;
-            padding: 0.3rem 1rem;
-            border-bottom: 1px solid #dddde6;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            border-radius: 0.9rem;
-          }
-        }
       }
 
       .hamburger-icon {
