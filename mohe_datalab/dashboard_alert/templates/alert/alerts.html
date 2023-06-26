@@ -10,163 +10,42 @@
 
 {% block main %}
 
-<div class="main_container">
+<div class="main-container">
     <div class="sidebar"></div>
     <div class="content-container">
-        <div class="recent_alerts">
+        <div class="recent-alerts">
 
             <div class="heading">{% trans 'Recent Alerts' %}</div>
 
             <div class="alert-notification-wrapper">
-                <div class="alert-notification">
 
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
+                {% if recent %}
+                    {% for alert in recent %}
+                        <div class="alert-notification">
+
+                            <div class="alert-content">
+                                <div class="alert-title">
+                                    {{ alert.template.title }}
+                                </div>
+                                <div class="alert-time">
+                                    {{ alert.date }}
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="alert-time">4min ago</div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-alerts-recent">
+                        {% trans 'No recent alerts.' %}
                     </div>
+                {% endif %}
 
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
-
-                <div class="alert-notification">
-
-                    <img src="{% static 'images/images/avatar.jpg' %}" />
-                    <div class="alert_content">
-                        <div class="alert-title">
-                            <b>David Lee</b> is negative.
-                        </div>
-                        <div class="alert-time">4min ago</div>
-                    </div>
-
-                </div>
             </div>
         </div>
 
-        <div class="alert_config">
+        <div class="alert-config">
             <div class="heading">{% trans 'Alert Configuration' %}</div>
-            <div class="alerts_table_div">
+            <div class="alerts-table-div">
                 <div class="table-wrapper">
                     <table class="table">
                         <tbody>
@@ -196,7 +75,7 @@
                 </div>
 
 
-                <div class="add_alerts_icon">
+                <div class="add-alerts-icon">
                     <a href="{% url 'alert_template_add' %}">
                         <img src="{% static 'images/images/new_svgs/Path.svg' %}" />
                     </a>
