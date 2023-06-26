@@ -40,7 +40,7 @@ main {
     width: 15%;
 }
 
-form {
+.settings-form {
     background-color: #F7F4F4 !important;
     position: fixed;
     top: 7rem;

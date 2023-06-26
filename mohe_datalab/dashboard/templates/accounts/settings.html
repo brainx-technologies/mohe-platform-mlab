@@ -13,7 +13,7 @@
 <div class="sidebar"></div>
 
 
-<form method="post">{% csrf_token %}
+<form class="settings-form" method="post">{% csrf_token %}
     <div class="row content-container settings_main">
         {% if form.errors %}
         <p class="alert alert-danger">
