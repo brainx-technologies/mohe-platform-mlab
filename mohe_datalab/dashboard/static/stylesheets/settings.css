@@ -89,7 +89,7 @@ form {
 }
 
 .save-button {
-    background-color: #6E255E;
+    background-color: #873375;
     border-radius: 1rem;
     opacity: 1;
     width: 17rem;
@@ -99,7 +99,7 @@ form {
 }
 
 .save-button:hover {
-    background-color: #873375;
+    background-color: #6E255E;
     color: white;
     transform: scale(1.01);
 }

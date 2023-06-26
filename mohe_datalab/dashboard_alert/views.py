@@ -40,7 +40,6 @@ def alert_template_form(request, pk=None):
     else:
         instance = get_object_or_404(AlertTemplate, pk=pk, user=request.user)
         title = _('Update alert template')
-
     if request.method == 'POST':
         form = AlertTemplateForm(request.POST, instance=instance)
         if form.is_valid():

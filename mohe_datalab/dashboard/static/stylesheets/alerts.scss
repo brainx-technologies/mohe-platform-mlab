@@ -1,0 +1,235 @@
+main {
+    width: 100%;
+
+    .main-container {
+        .sidebar {
+            height: 100%;
+            display: block;
+            position: fixed;
+            top: 7rem;
+            bottom: 0;
+            left: 0;
+            background-color: #6E255E;
+
+            z-index: 1;
+            width: 15%;
+        }
+
+        .content-container {
+
+            height: 100%;
+            position: fixed;
+            display: block;
+            position: fixed;
+            top: 7rem;
+            left: 15%;
+            overflow-y: auto;
+            width: 85%;
+            padding: 7rem;
+            background-color: #F7F4F4;
+
+            display: flex;
+
+
+
+            .recent-alerts {
+                width: 30%;
+                padding: 2rem 2rem 2rem 3rem;
+                background: transparent;
+                border-right: 1px solid #707070;
+                max-height: 70rem;
+
+                .heading {
+                    font-size: 1.8rem;
+                    font-weight: normal;
+                    color: #632154;
+                    margin-bottom: 2rem;
+                }
+
+                .alert-notification-wrapper {
+                    max-height: 62rem;
+                    overflow-y: auto;
+
+                    /* ... Existing styles ... */
+
+                    /* Customize the scrollbar */
+                    &::-webkit-scrollbar {
+                        width: 1.2rem;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #632154;
+                        border-radius: 5rem;
+                        height: 50px;
+                        /* Adjust the height as per your preference */
+                    }
+
+                    .alert-notification {
+                        display: flex;
+                        margin-bottom: 2rem;
+
+                        img {
+                            width: 4.5rem;
+                            height: 4.5rem;
+                            border-radius: 50%;
+                        }
+
+                        .alert-content {
+                            margin-left: 1rem;
+                            line-height: 2rem;
+
+                            .alert-title {
+                                font-size: 1.3rem;
+                                color: #4D4F5C;
+
+                                b {
+                                    font-weight: bold;
+                                    color: #4D565C;
+                                }
+                            }
+
+                            .alert-time {
+                                color: #808495;
+                                font-size: 1.1rem;
+                            }
+                        }
+                    }
+
+                    .empty-alerts-recent {
+                        color: #808495;
+                    }
+                }
+
+            }
+
+            .alert-config {
+                width: 70%;
+                padding: 1rem 1rem 1rem 5rem;
+
+                .heading {
+                    font-size: 1.8rem;
+                    font-weight: normal;
+                    color: #632154;
+                    margin-bottom: 2rem;
+                }
+
+                .alerts-table-div {
+
+                    background-color: #ffffff;
+                    box-shadow: 0px 2px 6px #0000000A;
+                    opacity: 1;
+                    border: none;
+                    padding: 3rem 2rem;
+
+                    .table-wrapper {
+                        max-height: 14rem;
+                        overflow-y: auto;
+                        margin-bottom: 2rem;
+
+                        /* ... Existing styles ... */
+
+                        /* Customize the scrollbar */
+                        &::-webkit-scrollbar {
+                            width: 0.5rem;
+                        }
+
+                        &::-webkit-scrollbar-track {
+                            background-color: #F1F1F3;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: #873375;
+                            border-radius: 3rem;
+                        }
+
+                        .table {
+
+                            color: #873375;
+                            font-size: 1.2rem;
+
+
+                            tr {
+                                th {
+                                    background-color: #F7F4F4;
+                                    border: none;
+                                    color: #A3A6B4;
+                                    font-weight: bold;
+                                    text-transform: uppercase;
+                                }
+
+                                td {
+                                    border: none;
+                                    border-bottom: 1px solid #F1F1F3;
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+                    .add-alerts-icon {
+                        padding-left: 2rem;
+
+                        a {
+                            img {
+                                width: 3.2rem;
+                                height: 3.2rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    main {
+
+        .main-container {
+
+            .content-container {
+                width: 100%;
+                left: 0;
+                flex-direction: column;
+
+                .recent-alerts {
+                    padding: 0;
+                    width: 100%;
+                    max-height: 400px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-right: none;
+                    margin-bottom: 2rem;
+                }
+
+                .alert-config {
+                    padding: 0;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+    }
+}
