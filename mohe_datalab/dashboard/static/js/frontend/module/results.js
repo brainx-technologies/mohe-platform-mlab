@@ -16,24 +16,25 @@ DashboardModules.results = function (moduleId) {
         }
         var q = $('#id_q').val();
 
-        $.get(apiUrl, {p: page, q: q}, function (data) {
+        $.get(apiUrl, { p: page, q: q }, function (data) {
             tbody.html('');
+            console.log("data :", data.result);
             data.result.forEach(function (result) {
-                var tr = $('<tr></tr>', {'class': 'result'}).appendTo(tbody);
+                var tr = $('<tr></tr>', { 'class': 'result' }).appendTo(tbody);
                 tr.attr('data-pk', result.id);
                 $('<td></td>').text('#' + result.id).appendTo(tr);
                 $('<td></td>').text(new Date(result.date).toLocaleString()).appendTo(tr);
-                $('<td></td>').text(result.team.name).appendTo(tr);
+                $('<td></td>').text(result.team?.name ? result.team.name : "Test Team").appendTo(tr);
 
                 $('<td></td>').text(result.kplex).appendTo(tr);
                 $('<td></td>').text(result.reference).appendTo(tr);
                 var td = $('<td></td>').appendTo(tr);
-                $('<span></span>', {'class': 'dot dot-' + result.status}).appendTo(td);
+                $('<span></span>', { 'class': 'dot dot-' + result.status }).appendTo(td);
                 var td = $('<td></td>').appendTo(tr);
 
                 if (result.status == "trigger") {
                     var tests = [];
-                    result.tests.sort((a, b) => { return a. name > b.name })
+                    result.tests.sort((a, b) => { return a.name > b.name })
                     for (var i = 0; i < result.tests.length; i++) {
                         if (result.tests[i].status == 'positive') {
                             tests.push(result.tests[i].name);

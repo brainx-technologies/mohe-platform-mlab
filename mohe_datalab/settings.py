@@ -3,7 +3,8 @@ from mohe.settings.base import *
 PROJECT_DIR = Path(__file__).resolve().parent
 
 ALLOWED_HOSTS = [
-    'mlab.' + config.get('MOHE', 'DOMAIN')
+    # 'mlab.' + config.get('MOHE', 'DOMAIN')
+    '127.0.0.1', 'demo.mohe.ch'
 ]
 
 # Application definition
