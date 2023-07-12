@@ -1,0 +1,115 @@
+main {
+  width: 100%;
+}
+main .container {
+  width: 100%;
+  padding: 0;
+}
+main .container .panel {
+  height: 100%;
+  position: fixed;
+  display: block;
+  position: fixed;
+  top: 7rem;
+  left: 15%;
+  overflow-y: auto;
+  margin: 0;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 85%;
+  background-color: #F7F4F4;
+}
+main .container .panel .panel-body {
+  padding: 0;
+  padding: 7rem 7rem 7rem 16rem;
+}
+main .container .panel .panel-body .panel-heading {
+  padding: 0;
+  border-bottom: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  color: #6E255E;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+main .container .panel .panel-body form .form-group {
+  margin: 0 !important;
+  margin-bottom: 1rem !important;
+}
+main .container .panel .panel-body form .form-group label {
+  display: none;
+}
+main .container .panel .panel-body form .form-group :last-child {
+  display: block !important;
+}
+main .container .panel .panel-body form .form-group:nth-of-type(2) textarea {
+  height: 16rem !important;
+  padding-top: 2rem;
+}
+main .container .panel .panel-body form .form-group .col-md-9 {
+  padding: 0;
+  width: 100%;
+}
+main .container .panel .panel-body form .form-group .form-control {
+  display: block;
+  height: 6rem;
+  font-size: 1.4rem;
+  color: #6E255E;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: none !important;
+}
+main .container .panel .panel-body form .form-group .form-control::-moz-placeholder {
+  color: #6E255E;
+}
+main .container .panel .panel-body form .form-group .form-control::placeholder {
+  color: #6E255E;
+}
+main .container .panel .panel-body form .pull-right button {
+  width: 12rem;
+  height: 6rem;
+  background-color: #873375;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 1rem;
+  line-height: normal;
+}
+main .container .panel .panel-body form .pull-right button:hover {
+  background-color: #6E255E;
+  color: white;
+  transform: scale(1.01);
+}
+main .container .panel .panel-body form .btn,
+main .container .panel .panel-body form .btn-default {
+  padding: 2.1rem 1.2rem !important;
+  border-radius: 1rem !important;
+  width: 12rem;
+  height: 6rem;
+  line-height: normal;
+}
+main .container .sidebar {
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 7rem;
+  bottom: 0;
+  left: 0;
+  background-color: #6E255E;
+  z-index: 1;
+  width: 15%;
+}
+
+@media (max-width: 768px) {
+  main .container .panel {
+    width: 100%;
+    left: 0;
+  }
+  main .container .panel .panel-body {
+    padding: 7rem;
+  }
+  main .container .sidebar {
+    display: none;
+  }
+}/*# sourceMappingURL=add_alerts.css.map */

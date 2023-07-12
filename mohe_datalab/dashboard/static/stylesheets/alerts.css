@@ -1,0 +1,171 @@
+main {
+  height: 93% !important;
+  width: 100%;
+}
+main .main-container .sidebar {
+  height: 93%;
+  display: block;
+  position: fixed;
+  top: 7%;
+  bottom: 0;
+  left: 0;
+  background-color: #6E255E;
+  z-index: 1;
+  width: 15%;
+}
+main .main-container .content-container {
+  height: 100%;
+  position: fixed;
+  display: block;
+  position: fixed;
+  top: 7%;
+  left: 15%;
+  overflow-y: auto;
+  width: 85%;
+  padding: 7rem;
+  background-color: #F7F4F4;
+  display: flex;
+}
+main .main-container .content-container .recent-alerts {
+  width: 30%;
+  padding: 2rem 2rem 2rem 3rem;
+  background: transparent;
+  border-right: 1px solid #707070;
+  max-height: 70rem;
+}
+main .main-container .content-container .recent-alerts .heading {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #632154;
+  margin-bottom: 2rem;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper {
+  max-height: 62rem;
+  overflow-y: auto;
+  /* ... Existing styles ... */
+  /* Customize the scrollbar */
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper::-webkit-scrollbar {
+  width: 1.2rem;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper::-webkit-scrollbar-thumb {
+  background-color: #632154;
+  border-radius: 5rem;
+  height: 50px;
+  /* Adjust the height as per your preference */
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification {
+  display: flex;
+  margin-bottom: 2rem;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification .alert-content {
+  margin-left: 1rem;
+  line-height: 2rem;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification .alert-content .alert-title {
+  font-size: 1.3rem;
+  color: #4D4F5C;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification .alert-content .alert-title b {
+  font-weight: bold;
+  color: #4D565C;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .alert-notification .alert-content .alert-time {
+  color: #808495;
+  font-size: 1.1rem;
+}
+main .main-container .content-container .recent-alerts .alert-notification-wrapper .empty-alerts-recent {
+  color: #808495;
+}
+main .main-container .content-container .alert-config {
+  width: 70%;
+  padding: 1rem 1rem 1rem 5rem;
+}
+main .main-container .content-container .alert-config .heading {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #632154;
+  margin-bottom: 2rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.0392156863);
+  opacity: 1;
+  border: none;
+  padding: 3rem 2rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper {
+  max-height: 14rem;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+  /* ... Existing styles ... */
+  /* Customize the scrollbar */
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper::-webkit-scrollbar {
+  width: 0.5rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper::-webkit-scrollbar-track {
+  background-color: #F1F1F3;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #873375;
+  border-radius: 3rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper .table {
+  color: #873375;
+  font-size: 1.2rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper .table tr th {
+  background-color: #F7F4F4;
+  border: none;
+  color: #A3A6B4;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+main .main-container .content-container .alert-config .alerts-table-div .table-wrapper .table tr td {
+  border: none;
+  border-bottom: 1px solid #F1F1F3;
+}
+main .main-container .content-container .alert-config .alerts-table-div .add-alerts-icon {
+  padding-left: 2rem;
+}
+main .main-container .content-container .alert-config .alerts-table-div .add-alerts-icon a img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+@media (max-width: 768px) {
+  main .main-container .content-container {
+    width: 100%;
+    left: 0;
+    flex-direction: column;
+  }
+  main .main-container .content-container .recent-alerts {
+    padding: 0;
+    width: 100%;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: none;
+    margin-bottom: 2rem;
+  }
+  main .main-container .content-container .alert-config {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  main .main-container .sidebar {
+    display: none;
+  }
+}/*# sourceMappingURL=alerts.css.map */

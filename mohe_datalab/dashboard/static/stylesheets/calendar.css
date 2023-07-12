@@ -1,0 +1,323 @@
+.calendar-container {
+    padding: 3rem 4rem 3rem 4rem;
+}
+
+/* filter buttons css */
+
+.custom-dropdown .dropdown-menu {
+    padding: 1.4rem;
+    width: 20.4rem;
+    height: auto;
+    border-radius: 0.4rem;
+    box-shadow: 0px 2px 10px #00000027;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.custom-dropdown .dropdown-menu .dropdown-item {
+    border-bottom: 1px solid #F1F1F3;
+    color: #4D565C;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.custom-dropdown .dropdown-menu .dropdown-item {
+    padding: 1rem 1.2rem;
+    margin: auto;
+    text-align: center;
+}
+
+.custom-dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: transparent;
+}
+
+.custom-dropdown .dropdown-menu .dropdown-item:hover {
+    color: #6E255E;
+}
+
+.calendar-container .filters-dropdown {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-bottom: 0.9rem;
+}
+
+.calendar-container .filters-dropdown .custom-dropdown .dropdown-toggle {
+    margin-right: 3.5rem;
+    background-color: #ffffff;
+    color: #6E255E;
+    font-size: 1.3rem;
+    text-align: left;
+    border-radius: 1rem;
+    width: 20.4rem;
+    height: 3.5rem;
+    border: none;
+    display: inline-flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.calendar-container .filters-dropdown .custom-dropdown .positive {
+    color: #D66D6E;
+}
+
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-toggle img {
+    width: 1.3rem;
+    height: 1.1rem;
+}
+
+/* filter buttons css */
+
+
+/* calendar css */
+
+#calendar {
+    margin-top: 2rem;
+    width: auto;
+    min-width: 343px;
+    height: 75rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #0000000A;
+    padding: 2rem;
+}
+
+.fc .fc-button-primary:disabled {
+    background-color: transparent;
+    border: 1px solid #D7DAE2;
+    color: #3B86FF;
+    width: 7rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+.fc-direction-ltr .fc-toolbar>*> :not(:first-child) {
+    margin-left: 0;
+}
+
+.fc-button-group .fc-icon {
+    display: none;
+}
+
+.fc-button-group .fc-prev-button::before {
+    content: "Back";
+}
+
+.fc-button-group .fc-prev-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 6rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-right: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-button-group .fc-next-button::before {
+    content: "Next";
+}
+
+.fc-button-group .fc-next-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 6rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-toolbar-title {
+    font-size: 1.8rem;
+    color: #6E255E;
+    font-weight: normal;
+}
+
+.fc-button-group .fc-dayGridMonth-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 7rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-button-active {
+    background-color: #6E255E !important;
+    color: #FFFFFF !important;
+}
+
+.fc-button-group .fc-timeGridWeek-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 6rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-right: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-button-group .fc-timeGridDay-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 6rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-right: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-button-group .fc-listWeek-button {
+    background-color: transparent;
+    color: #6E255E;
+    border: 1px solid #D7DAE2;
+    width: 6rem;
+    height: 3.2rem;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    font-size: 1.3rem;
+}
+
+.fc-h-event {
+    background-color: #D66D6E;
+    color: #FFFFFF;
+    border-radius: 0.4rem;
+    border: none;
+    display: block;
+    font-size: 1.3rem;
+    padding: 0.2rem 0.4rem;
+}
+
+.fc-scrollgrid td,
+.fc-scrollgrid th,
+.fc-scrollgrid thead,
+.fc-scrollgrid tr {
+    border: 1px solid #EAF0F4;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border: 1px solid #EAF0F4;
+}
+
+.fc-daygrid-day-number {
+    text-decoration: none;
+    color: #6E255E !important;
+    font-size: 1.5rem;
+    opacity: 1;
+}
+
+.fc-col-header-cell-cushion {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0.5;
+    color: #6E255E !important;
+}
+
+.fc-scrollgrid th {
+    background-color: #F7F4F4;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: #F5F6FA;
+}
+
+/* calendar css */
+
+/* responsiveness  */
+
+@media (max-width: 960px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        font-size: 45%;
+    }
+
+    .calendar-container .filters-dropdown .custom-dropdown .dropdown-toggle {
+        width: 15rem;
+        height: 5rem;
+    }
+
+    .custom-dropdown .dropdown-menu {
+        width: 15rem;
+    }
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 530px) {
+    .calendar-container {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    #calendar {
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+}
+
+/* responsiveness  */

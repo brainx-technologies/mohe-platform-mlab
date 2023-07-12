@@ -1,0 +1,295 @@
+body.dashboard.update #sidebar {
+  overflow-y: auto;
+}
+body.dashboard.update #sidebar .sidebar-sub-div .form-group label {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+body.dashboard.update #sidebar .sidebar-sub-div button {
+  background-color: #a7809e;
+  border: none;
+}
+body.dashboard.update .row {
+  position: relative;
+  min-height: 60px;
+}
+body.dashboard.update .row .module-add {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  z-index: -1;
+}
+
+body.dashboard main {
+  display: flex;
+  background-color: #F7F4F4 !important;
+}
+body.dashboard main #sidebar {
+  display: none;
+}
+body.dashboard main #dashboard-content {
+  position: fixed;
+  top: 7%;
+  height: 93%;
+  width: 100% !important;
+  padding: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #F7F4F4 !important;
+}
+
+@media (min-width: 1000px) {
+  body.dashboard main {
+    display: flex;
+    background-color: #F7F4F4 !important;
+  }
+  body.dashboard main #sidebar {
+    height: 93%;
+    display: block;
+    position: fixed;
+    overflow-y: scroll;
+    top: 7%;
+    bottom: 0;
+    left: 0;
+    background-color: #6E255E;
+    z-index: 999;
+    width: 15%;
+    font-size: 1.4rem;
+    color: #F7F4F4;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div {
+    border-right: 1px solid #a7809e;
+    margin: 0rem 2rem 0rem 0rem;
+    padding: 3rem 2rem;
+    height: 100%;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div hr {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .sidebar-hr {
+    border-color: #a7809e !important;
+    width: 90% !important;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .heading {
+    display: flex;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .heading img {
+    margin-right: 1rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex {
+    padding-top: 2rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 2.5rem;
+    list-style: none;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul li label {
+    font-weight: normal;
+    /* Style the inner circle */
+    /* Change the color of the checked inner circle */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul li label input[type=radio] {
+    /* Hide the default radio button */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /* Set the size of the radio button */
+    width: 1.4rem;
+    height: 1.4rem;
+    /* Add border */
+    border: 1px solid #F7F4F4;
+    /* Replace #000000 with your desired border color */
+    /* Add border-radius to make it round */
+    border-radius: 50%;
+    /* Add background color */
+    background-color: transparent;
+    /* Replace #ffffff with your desired background color */
+    margin-right: 0.8rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul li label input[type=radio]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    /* Replace transparent with your desired color */
+    transition: background-color 0.3s ease;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul li label input[type=radio]:after {
+    content: "";
+    display: none;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex ul li label input[type=radio]:checked::before {
+    /* Set the color for the checked inner circle */
+    background: #F7F4F4;
+    /* Replace #F7F4F4 with your desired color */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex {
+    margin-left: 2.5rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex label {
+    display: flex;
+    cursor: pointer;
+    font-weight: normal;
+    /* Style the inner circle */
+    /* Change the color of the checked inner circle */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex label input[type=radio] {
+    /* Hide the default radio button */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /* Set the size of the radio button */
+    width: 1.4rem;
+    height: 1.4rem;
+    /* Add border */
+    border: 1px solid #F7F4F4;
+    /* Replace #000000 with your desired border color */
+    /* Add border-radius to make it round */
+    border-radius: 50%;
+    /* Add background color */
+    background-color: transparent;
+    /* Replace #ffffff with your desired background color */
+    margin-right: 0.8rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex label input[type=radio]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    /* Replace transparent with your desired color */
+    transition: background-color 0.3s ease;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex label input[type=radio]:after {
+    content: "";
+    display: none;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .kplex #id_kplex label input[type=radio]:checked::before {
+    /* Set the color for the checked inner circle */
+    background: #F7F4F4;
+    /* Replace #F7F4F4 with your desired color */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices {
+    padding-top: 2rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul {
+    padding: 0;
+    margin: 0;
+    padding-left: 2.4rem;
+    list-style: none;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul .child1 {
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul .child1 .child2 {
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul li label {
+    display: flex;
+    cursor: pointer;
+    font-weight: normal;
+    /* Style the inner circle */
+    /* Change the color of the checked inner circle */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul li label input[type=radio] {
+    /* Hide the default radio button */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    /* Set the size of the radio button */
+    width: 1.4rem;
+    height: 1.4rem;
+    /* Add border */
+    border: 1px solid #F7F4F4;
+    /* Replace #000000 with your desired border color */
+    /* Add border-radius to make it round */
+    border-radius: 50%;
+    /* Add background color */
+    background-color: transparent;
+    /* Replace #ffffff with your desired background color */
+    margin-right: 0.8rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul li label input[type=radio]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    /* Replace transparent with your desired color */
+    transition: background-color 0.3s ease;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul li label input[type=radio]:after {
+    content: "";
+    display: none;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .team-choices ul li label input[type=radio]:checked::before {
+    /* Set the color for the checked inner circle */
+    background: #F7F4F4;
+    /* Replace #F7F4F4 with your desired color */
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .form-group {
+    margin-bottom: 1rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div label {
+    margin-bottom: 1rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .form-control {
+    margin: 0;
+    color: #F7F4F4;
+    background-color: #632154 !important;
+    border: none;
+    font-size: 1.2rem !important;
+    border-radius: 0.5rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .sidebar-icons {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .sidebar-icons .sidebar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    background-color: #632154;
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  body.dashboard main #sidebar .sidebar-sub-div .sidebar-icons .sidebar-icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.dashboard main #dashboard-content {
+    position: fixed;
+    top: 7%;
+    left: 15%;
+    height: 93%;
+    width: 85% !important;
+    padding: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #F7F4F4 !important;
+  }
+}/*# sourceMappingURL=dashboard.css.map */

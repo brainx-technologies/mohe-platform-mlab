@@ -1,0 +1,23 @@
+.module-map {
+  position: fixed;
+  top: 90px;
+  left: 265px;
+  bottom: 15px;
+  right: 15px;
+  background-color: #fff;
+}
+.module-map .map {
+  width: 100%;
+  height: 100%;
+}
+.module-map .map .glyphicon-play, .module-map .map .progress {
+  display: none;
+}
+.module-map .map .gm-style-cc {
+  display: none !important;
+}
+.module-map .progress {
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 0;
+}/*# sourceMappingURL=map.css.map */

@@ -40,6 +40,31 @@ def redirect_home(request, pk):
 
 @user_passes_test(has_dastalab_access)
 def dashboard(request, slug):
+
+
+    if slug=="calendar": 
+        instance = get_object_or_404(Dashboard, user=request.user, slug="results")
+        print("------------------------------------calendar------------------------------------------")
+        update = False
+        if request.method == 'POST':
+            form = DashboardFilterForm(request.POST, instance=instance)
+            if form.is_valid():
+                form.save()
+        else:
+            form = DashboardFilterForm(instance=instance)
+
+        return render(request, 'frontend/calendar.html', {
+            'title': "Calendar",
+            'instance': instance,
+            'modules': instance.dashboardmodule_set.all(),
+            'form': form,
+            'update': update,
+            'widget_form': WidgetAddForm(),
+            'google_api_key': settings.GOOGLE_API_KEY,
+            'can_add_dashboard': True,
+            'can_update_dashboard': True
+        })
+
     instance = get_object_or_404(Dashboard, user=request.user, slug=slug)
 
     if "reset" in request.GET:

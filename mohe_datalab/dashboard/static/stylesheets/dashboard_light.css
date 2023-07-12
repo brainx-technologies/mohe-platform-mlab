@@ -1,0 +1,92 @@
+body.dashboard {
+  background-color: #f3f3f3;
+}
+body.dashboard #sidebar {
+  background-color: #ddd;
+  color: #333;
+}
+body.dashboard .grid-stack-item-content {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+body.dashboard .grid-stack-item-content .heading {
+  border-bottom: 1px solid #ddd;
+  background-color: #f3f3f3;
+}
+body.dashboard .form-control {
+  background-color: #ddd;
+  border-radius: 0;
+  border: solid 1px rgba(39, 50, 57, 0.5);
+}
+body.dashboard select {
+  -webkit-appearance: none;
+}
+body.dashboard input[type=radio] {
+  border: 1px solid #2eb7e6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  -webkit-appearance: none;
+}
+body.dashboard input[type=radio]:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  position: relative;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
+}
+body.dashboard input[type=radio]:checked:after {
+  background-color: #2eb7e6;
+}
+body.dashboard input[type=radio]:focus {
+  outline: none;
+}
+body.dashboard hr {
+  border-top: none;
+  border-bottom: solid 1px #273239;
+}
+body.dashboard .module-number .heading {
+  border-top: none;
+  background-color: #fff;
+}
+body.dashboard .module-radar .result-list .result {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #999;
+}
+body.dashboard .module-radar .result-list .result:first-child {
+  background-color: #ddd;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #ddd;
+  outline: none;
+}
+body.dashboard .module-radar .result-list .result:hover {
+  background-color: lightskyblue;
+}
+body.dashboard .module-radar .result-detail {
+  border: none;
+  background-color: #ddd;
+}
+body.dashboard .result-overlay {
+  background-color: #eee;
+  color: #343434;
+  box-shadow: 0 0 8px #333;
+}
+body.dashboard .result-overlay .result {
+  transition: all 0.5s;
+  border-top: 1px solid #eee;
+}
+body.dashboard .result-overlay .result.active, body.dashboard .result-overlay .result:hover {
+  border-top: 1px solid #f8f8f8;
+  background-color: #ddd;
+}
+body.dashboard .result-overlay .map {
+  border-top: 2px solid #f8f8f8;
+}/*# sourceMappingURL=dashboard_light.css.map */

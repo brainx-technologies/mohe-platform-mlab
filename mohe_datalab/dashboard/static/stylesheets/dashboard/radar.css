@@ -1,0 +1,61 @@
+.module-radar .body .result-map {
+  position: absolute;
+  left: 35%;
+  top: 29px;
+  bottom: 0;
+  width: 65%;
+  z-index: 0;
+}
+.module-radar .body .result-map .gm-style-cc {
+  display: none !important;
+}
+.module-radar .body .result-list {
+  position: absolute;
+  left: 0%;
+  top: 29px;
+  bottom: 0px;
+  width: 35%;
+  overflow: scroll;
+}
+.module-radar .body .result-list .result {
+  display: block;
+  padding: 8px 16px;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+.module-radar .body .result-list .result .id {
+  padding: 2px;
+  margin-right: 4px;
+  font-size: larger;
+}
+.module-radar .body .result-list .result .kplex {
+  display: block;
+  padding: 2px;
+}
+.module-radar .body .result-list .result .date {
+  display: block;
+  padding: 2px;
+}
+.module-radar .body .result-detail {
+  position: absolute;
+  left: 35%;
+  top: 29px;
+  bottom: 0px;
+  width: 35%;
+  padding: 5px 15px;
+  z-index: 909999;
+  opacity: 0;
+}
+.module-radar .body .result-detail div {
+  padding: 4px 0;
+}
+.module-radar .body .result-detail div.id, .module-radar .body .result-detail div.status {
+  display: inline-block;
+}
+.module-radar .body .result-detail div.id {
+  margin-right: 5px;
+  font-size: larger;
+}
+.module-radar .result-list:hover + .result-detail {
+  opacity: 0.9;
+}/*# sourceMappingURL=radar.css.map */

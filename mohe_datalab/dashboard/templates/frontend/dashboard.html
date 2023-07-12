@@ -67,6 +67,7 @@
     </div>
 </div>
 
+{% block dashboard_content %}
 <div id="dashboard-content">
     <div class="grid-stack">
         {% for m in modules %}
@@ -76,6 +77,7 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
 {% endblock %}
 
 

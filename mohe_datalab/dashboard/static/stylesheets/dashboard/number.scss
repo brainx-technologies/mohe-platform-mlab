@@ -1,29 +1,36 @@
 .module-number {
   text-align: center;
-  line-height: 1.4;
+  line-height: 2;
 
   .grid-stack-item-content {
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+
+    padding: 10px 0px 10px 10px;
+
+    background-color: #FFFFFF !important;
+    color: #873375 !important;
 
     .heading {
-      border-radius: 0;
       border: none !important;
       line-height: 1;
-      padding: 0;
-      font-size: 12px;
+      background-color: #FFFFFF !important;
+      color: #873375 !important;
+      font-size: 14px;
     }
 
     .body {
       font-size: 24px;
-      padding: 8px 0 0;
+      font-weight: bold;
       line-height: 1;
+      background-color: #FFFFFF !important;
+      color: #873375 !important;
 
       small {
-        font-size: 16px;
+        color: #D66D6E;
+        font-size: 11px;
       }
     }
   }
 }
-
